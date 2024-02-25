@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="styles.css">
     <link href="BootStrap/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-lg navbar-dark transparent-nav">
             <div class="container">
-                <a class="navbar-brand" href="index.html">2N - Finanças</a>
+                <a class="navbar-brand custom-brand" href="index.html"><img
+                        src="Assets/Instagram post - 1 (2)-Photoroom.png-Photoroom.png" alt="calculadora" width="140"
+                        height="140">
+                    Página inicial</a>
             </div>
         </nav>
     </header>
@@ -22,7 +25,10 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Adicionar transação</h2>
+                        <h2 class="d-flex align-items-center">
+                            <img src="bootstrap-icons-1.11.3/calculator.svg" alt="calculadora" width="30" height="25"
+                                fill="currentColor" class="mr-2"> Adicionar transação
+                        </h2>
                         <div class="form-group">
                             <label for="descricao">Descrição:</label>
                             <input type="text" class="form-control" id="descricao">
@@ -49,7 +55,10 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2 id="saldoTotalTitulo">Saldo total:</h2>
+                        <h2 class="d-flex align-items-center">
+                            <img src="bootstrap-icons-1.11.3/bank.svg" alt="banco" width="30" height="25"
+                                fill="currentColor" class="mr-2"> Saldo total:
+                        </h2>
                         <h4 class="descricao">Saldo em conta + Saldo da poupança </h4>
                         <h3 id="saldoTotal">R$ 0,00</h3>
                     </div>
@@ -57,14 +66,20 @@
                 <div class="card mt-3">
                     <div class="card">
                         <div class="card-body">
-                            <h2 id="saldoCaixaTitulo">Saldo em conta:</h2>
+                            <h2 class="d-flex align-items-center">
+                                <img src="bootstrap-icons-1.11.3/wallet2.svg" alt="carteira" width="30" height="26"
+                                    fill="currentColor" class="mr-2"> Saldo em conta:
+                            </h2>
                             <h3 id="saldoCaixa">R$ 0,00</h3>
                         </div>
                     </div>
                 </div>
                 <div class="card mt-3">
                     <div class="card-body">
-                        <h2>Histórico de transações</h2>
+                        <h2 class="d-flex align-items-center">
+                            <img src="bootstrap-icons-1.11.3/clock-history.svg" alt="relogio" width="30" height="26"
+                                fill="currentColor" class="mr-2"> Histórico de transações
+                        </h2>
                         <ul id="historico" class="list-group">
                         </ul>
                     </div>
@@ -75,7 +90,10 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Poupança</h2>
+                        <h2 class="d-flex align-items-center">
+                            <img src="bootstrap-icons-1.11.3/piggy-bank.svg" alt="porquinho" width="30" height="34"
+                                fill="currentColor" class="mr-2"> Poupança
+                        </h2>
                         <h3 id="poupanca">Saldo: R$ 0,00</h3>
                         <p id="poupancaHelp" class="form-text text-danger"></p>
                     </div>
@@ -86,7 +104,10 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <h2>Gráfico de gastos</h2>
+                        <h2 class="d-flex align-items-center">
+                            <img src="bootstrap-icons-1.11.3/graph-up-arrow.svg" alt="grafico" width="30" height="26"
+                                fill="currentColor" class="mr-2"> Gráfico das transações
+                        </h2>
                         <canvas id="graficoGastos"></canvas>
                     </div>
                 </div>

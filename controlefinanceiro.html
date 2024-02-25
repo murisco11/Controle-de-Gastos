@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+    <link href="BootStrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">2N - Finanças</a>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Adicionar transação</h2>
+                        <div class="form-group">
+                            <label for="descricao">Descrição:</label>
+                            <input type="text" class="form-control" id="descricao">
+                            <small id="descricaoHelp" class="form-text text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="valor">Valor:</label>
+                            <input type="number" class="form-control" id="valor">
+                            <small id="valorHelp" class="form-text text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo">Tipo de transação:</label>
+                            <select class="form-control" id="tipo" onchange="alterarTipoTransacao()">
+                                <option value="receita">Receita</option>
+                                <option value="despesa">Despesa</option>
+                                <option value="retirarPoupanca">Retirar da poupança</option>
+                                <option value="adicionarPoupanca">Adicionar a poupança</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary mt-3" onclick="adicionarTransacao()">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 id="saldoTotalTitulo">Saldo total:</h2>
+                        <h4 class="descricao">Saldo em conta + Saldo da poupança </h4>
+                        <h3 id="saldoTotal">R$ 0,00</h3>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 id="saldoCaixaTitulo">Saldo em conta:</h2>
+                            <h3 id="saldoCaixa">R$ 0,00</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h2>Histórico de transações</h2>
+                        <ul id="historico" class="list-group">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Poupança</h2>
+                        <h3 id="poupanca">Saldo: R$ 0,00</h3>
+                        <p id="poupancaHelp" class="form-text text-danger"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Gráfico de gastos</h2>
+                        <canvas id="graficoGastos"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

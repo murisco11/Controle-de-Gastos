@@ -21,7 +21,7 @@ body {
 .btn {
   border-radius: 25px;
   padding: 10px 20px; 
-  font-size: 0.9rem; 
+  font-size: 0.9rem;
 }
 
 .btn-primario {
@@ -38,43 +38,30 @@ body {
   font-size: 1em;
 }
 
+/* Estilos para Dispositivos Móveis e Tablets */
 @media (max-width: 768px) {
   .col-md-6 {
-      width: 100%;
+      width: calc(50% - 20px);
+      margin: 10px; 
   }
-
   .card-body {
-      padding: 15px;
+      padding: 15px; 
   }
 
   .custom-brand {
-      font-size: 1.5rem;
+      font-size: 1.5rem; 
   }
 
   .descricao {
-      font-size: 0.9em;
+      font-size: 0.9em; 
   }
 
   .row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-wrap: nowrap; /* Impede que os elementos sejam envoltos em várias linhas */
   }
 
   .col-md-6 {
-      flex-basis: calc(50% - 10px);
-      margin-bottom: 20px;
+      flex: 0 0 auto; /* Impede que os elementos sejam flexíveis e mantenham o tamanho fixo */
   }
 
-  .col-md-6:first-child {
-      order: -1;
-  }
-
-  .col-md-6:nth-child(2) {
-      order: 1;
-  }
-
-  .col-md-6:last-child {
-      order: 2;
-  }
 }

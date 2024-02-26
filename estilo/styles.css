@@ -21,7 +21,7 @@ body {
 .btn {
   border-radius: 25px;
   padding: 10px 20px; 
-  font-size: 0.9rem;
+  font-size: 0.9rem; 
 }
 
 .btn-primario {
@@ -38,14 +38,14 @@ body {
   font-size: 1em;
 }
 
-/* Estilos para Dispositivos Móveis e Tablets */
 @media (max-width: 768px) {
   .col-md-6 {
       width: calc(50% - 20px);
       margin: 10px; 
   }
+
   .card-body {
-      padding: 15px; 
+      padding: 20px; 
   }
 
   .custom-brand {
@@ -57,11 +57,10 @@ body {
   }
 
   .row {
-      flex-wrap: nowrap; /* Impede que os elementos sejam envoltos em várias linhas */
+      justify-content: space-between; 
   }
 
-  .col-md-6 {
-      flex: 0 0 auto; /* Impede que os elementos sejam flexíveis e mantenham o tamanho fixo */
+  .col-md-6:first-child {
+      order: 1; 
   }
-
 }

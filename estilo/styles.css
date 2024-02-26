@@ -1,7 +1,7 @@
 body {
-  color: #070707 !important;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
-  background-image: url('Assets/integracao-no-mercado-financeiro.jpg');
+  color: #ffffff !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+  background-image: url("Assets/background.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -10,6 +10,7 @@ body {
 
 .card {
   background-color: #fff;
+  color: #070707;
   border-radius: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -18,10 +19,14 @@ body {
   padding: 20px;
 }
 
+.navbar-brand:hover {
+  color: #070707;
+}
+
 .btn {
   border-radius: 25px;
-  padding: 10px 20px; 
-  font-size: 0.9rem; 
+  padding: 10px 20px;
+  font-size: 0.9rem;
 }
 
 .btn-primario {
@@ -39,28 +44,28 @@ body {
 }
 
 @media (max-width: 768px) {
-  .col-md-6 {
-      width: calc(50% - 20px);
-      margin: 10px; 
+  .col-md-12 {
+    width: 100%; 
+    margin-bottom: 20px; 
   }
 
   .card-body {
-      padding: 20px; 
+    padding: 20px;
   }
 
   .custom-brand {
-      font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
 
   .descricao {
-      font-size: 0.9em; 
+    font-size: 0.9em;
   }
 
   .row {
-      justify-content: space-between; 
+    justify-content: space-between;
   }
 
   .col-md-6:first-child {
-      order: 1; 
+    order: 1;
   }
 }

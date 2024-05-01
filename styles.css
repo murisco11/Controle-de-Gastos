@@ -13,7 +13,7 @@
 /**/
 body {
     color: #ffffff !important;
-    background-image: url("Assets/background.jpg");
+    background-image: url("estilo/Assets/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;

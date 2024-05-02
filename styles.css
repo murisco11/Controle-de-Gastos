@@ -13,8 +13,10 @@
     box-sizing: border-box;
 }
 
+
+
 body {
-    color: #ffffff !important;
+    color: #ffffff;
     background-image: url("estilo/Assets/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;

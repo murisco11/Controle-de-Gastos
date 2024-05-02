@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2N Finnanças</title>
-  <link rel="stylesheet" href="estilo/styles.css" />
+  <link rel="stylesheet" href="styles-CF.css" />
   <link rel="stylesheet" href="estilo/BootStrap/bootstrap.min.css" />
   <link rel="icon" href="estilo/Assets/favicon.png" type="image/x-icon" />
   <!--Inclusão da fonte através da API do google-->
@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="cf">
   <header> <!--Topo da página, com a âncora para voltar para a página inicial-->
     <nav>
       <a style="font-weight: 800; font-size: 1.2em; color: rgb(0, 0, 0);" href="index.html">
@@ -93,7 +93,7 @@
       <img src="estilo/Icones BootStrap/graph-up-arrow.svg" alt="grafico" width="30" height="26" />
       Gráfico das transações
     </h2>
-    <canvas id="graficoGastos"></canvas>
+    <canvas id="graficoGastos" width="10" height="10"></canvas>
   </div>
   <!--Script e Inclusão do Chart.js pro gráfico-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>

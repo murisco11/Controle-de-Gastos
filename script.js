@@ -1,8 +1,8 @@
 let transacoes = [];
 let poupanca = 0;
-let chart; 
+let chart;
 
-window.onload = function() {
+window.onload = function () {
     atualizarGrafico();
 };
 
@@ -29,9 +29,9 @@ function adicionarTransacao() {
 
     if (tipo === 'adicionarPoupanca' || tipo === 'retirarPoupanca') {
     } else {
-        
+
         const mes = (new Date()).getMonth() + 1;
-        const ano = (new Date()).getFullYear(); 
+        const ano = (new Date()).getFullYear();
     }
 
     if (camposVazios > 0) {
@@ -71,7 +71,7 @@ function adicionarPoupanca(valor) {
     if (poupanca < 0) {
         poupanca = 0;
     }
-    atualizarSaldo(); 
+    atualizarSaldo();
 }
 
 function retirarPoupanca(valor) {
@@ -79,7 +79,7 @@ function retirarPoupanca(valor) {
     if (poupanca < 0) {
         poupanca = 0;
     }
-    atualizarSaldo(); 
+    atualizarSaldo();
 }
 
 function atualizarSaldo() {
@@ -89,10 +89,10 @@ function atualizarSaldo() {
         if (transacao.tipo === 'receita') {
             saldoReceitas += transacao.valor;
         } else if (transacao.tipo === 'despesa') {
-            saldoDespesas += transacao.valor; 
+            saldoDespesas += transacao.valor;
         }
     }
-    const saldoTotal = saldoReceitas - saldoDespesas + poupanca; 
+    const saldoTotal = saldoReceitas - saldoDespesas + poupanca;
     const saldoCaixa = saldoReceitas - saldoDespesas;
     document.getElementById('saldoTotal').textContent = `${formatarNumero(saldoTotal)}`;
     document.getElementById('saldoCaixa').textContent = `${formatarNumero(saldoCaixa)}`;
@@ -121,36 +121,36 @@ function atualizarHistorico() {
 }
 
 function atualizarGrafico() {
+
     const ctx = document.getElementById('graficoGastos').getContext('2d');
 
     const entradas = transacoes.filter(transacao => transacao.tipo === 'receita');
     const saidas = transacoes.filter(transacao => transacao.tipo === 'despesa');
-
+    
     const labels = ['Entradas', 'Saídas', 'Poupança'];
     const data = [
         entradas.reduce((acc, transacao) => acc + transacao.valor, 0),
         saidas.reduce((acc, transacao) => acc + transacao.valor, 0),
         poupanca
     ];
-
+    
     if (chart) {
         chart.data.labels = labels;
         chart.data.datasets[0].data = data;
         chart.update();
     } else {
         chart = new Chart(ctx, {
-            type: 'bar',
+            type: 'doughnut',
             data: {
                 labels: labels,
                 datasets: [{
                     label: 'Valor',
                     data: data,
-                    backgroundColor: ['#198754', '#dc3545', '#0d6efd', '#6610f2'],
-                    borderRadius: 4
+                    backgroundColor: ['green', 'red', 'blue'],
+                    borderRadius: 2
                 }]
             },
             options: {
-                indexAxis: 'y',
                 scales: {
                     x: {
                         beginAtZero: true
@@ -159,4 +159,8 @@ function atualizarGrafico() {
             }
         });
     }
+    
 }
+
+
+

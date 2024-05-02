@@ -1,0 +1,128 @@
+/* Reset de margin e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white  !important
+  }
+  
+  /* Estilos gerais para o corpo da página */
+  body {
+    font-family: 'Inter', sans-serif;
+    background-image: url("estilo/Assets/background.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center;
+    height: 100vh;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 60px; /* Ajuste o padding superior do corpo para que o conteúdo não fique oculto sob o cabeçalho */
+
+  }
+  
+  /* Estilos para o cabeçalho */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999; /* Para garantir que o cabeçalho fique acima do resto do conteúdo */
+    background-color: rgb(0, 42, 125);
+  }
+
+  header nav a {
+    text-decoration: none;
+  }
+
+  .container-content {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  /* Estilos para o formulário de adicionar transação */
+  .division {
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 30vw;
+    margin: 4vh 1vw;
+    height: 62vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 42, 125, 0.938);
+  }
+  
+  .division .inputs {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 12px;
+    width: 100%;
+    background-color: #e8eeef;
+    color: #2c2c2c !important;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 10px;
+    margin-top: 5px
+  }
+  
+  .division h2 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  
+  .division .button {
+    border: 0;
+    border-radius: 20px;
+    padding: 12px 120px;
+    margin: 10px auto;
+    cursor: pointer;
+    background-color: #FF2A97;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+}
+
+.division .button:hover {
+    background-color: #ff168e;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+}
+
+.div-saldos {
+  border-radius: 20px;
+  box-shadow: 0 2px 4px #ffb8dd, 0 -2px 4px #ffb8dd;
+  padding: 15px;
+  margin: 15px
+
+}
+
+.div-saldos h3 {
+  text-align: center;
+}
+
+/*///////////////////////////////////////////////////////////*/
+
+
+.historico-transações ul li {
+  background-color: #fff; /* Cor de fundo */
+  padding: 20px; /* Espaçamento interno */
+  border-radius: 8px; /* Cantos arredondados */
+  max-height: 48vh; /* Altura máxima */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+  border: 1px solid black;
+  color:#2c2c2c !important;
+}
+
+.historico-transações h2 {
+  
+}
+
+

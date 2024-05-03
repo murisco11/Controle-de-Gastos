@@ -1,105 +1,110 @@
 /* Reset de margin e padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: white  !important
-  }
-  
-  /* Estilos gerais para o corpo da página */
-  body {
-    font-family: 'Inter', sans-serif;
-    background-image: url("estilo/Assets/background.jpg");
-    background-size: cover;
-    background-repeat: repeat;
-    background-position: center center;
-    height: 100vh;
-    color: #333;
-    line-height: 1.6;
-    padding-top: 60px; /* Ajuste o padding superior do corpo para que o conteúdo não fique oculto sob o cabeçalho */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white !important
+}
 
-  }
-  
-  /* Estilos para o cabeçalho */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    background-color: rgb(0, 42, 125);
-  }
-  
-  nav {
-    display: flex !important;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+/* Estilos gerais para o corpo da página */
+body {
+  font-family: 'Inter', sans-serif;
+  background-image: url("estilo/Assets/background.jpg");
+  background-size: cover;
+  background-repeat: repeat;
+  background-position: center center;
+  height: 100vh;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 60px;
+  /* Ajuste o padding superior do corpo para que o conteúdo não fique oculto sob o cabeçalho */
 
-  header nav a {
-    text-decoration: none;
-  }
+}
 
-  .container-content {
-    display: flex;
-    justify-content:center;
-  }
-  
+/* Estilos para o cabeçalho */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  background-color: rgb(0, 42, 125);
+}
 
-  .division {
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 45vw;
-    margin: 4vh 1vw;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: rgba(0, 42, 125, 0.959);
-  }
-  
-  .division .inputs {
-    background: rgb(207, 207, 207) !important;
-    border: none;
-    font-size: 16px;
-    height: auto;
-    margin: 0;
-    outline: 0;
-    padding: 12px;
-    width: 100%;
-    background-color: #e8eeef;
-    color: #2c2c2c !important;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-    margin-bottom: 10px;
-    margin-top: 5px
-  }
-  
-  .division h2 {
-    font-size: 1.5em;
-    text-align: center;
-  }
-  
-  .division .button {
-    border: 0;
-    border-radius: 20px;
-    padding: 12px 120px;
-    margin: 10px auto;
-    cursor: pointer;
-    background-color: #FF2A97;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    display: block;
+nav {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header nav a {
+  text-decoration: none;
+}
+
+.arrowRight {
+  margin-left: 3px
+}
+
+.container-content {
+  display: flex;
+  justify-content: center;
+}
+
+
+.division {
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 45vw;
+  margin: 4vh 1vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: rgba(0, 42, 125, 0.959);
+}
+
+.division .inputs {
+  background: rgb(207, 207, 207) !important;
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 12px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #2c2c2c !important;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 10px;
+  margin-top: 5px
+}
+
+.division h2 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.division .button {
+  border: 0;
+  border-radius: 20px;
+  padding: 12px 120px;
+  margin: 10px auto;
+  cursor: pointer;
+  background-color: #FF2A97;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  display: block;
 }
 
 .division .button:hover {
-    background-color: #ff168e;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+  background-color: #ff168e;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
 }
 
 .div-saldos {
@@ -107,7 +112,6 @@
   box-shadow: 0 2px 4px #ffb8dd, 0 -2px 4px #ffb8dd;
   padding: 15px;
   margin: 15px
-
 }
 
 .div-saldos h3 {
@@ -116,16 +120,16 @@
 
 
 .historico-transações h2 {
-  padding-bottom: 15px; 
-  margin-top: -10px; 
-  background-color: rgba(0, 42, 125, 0.938); 
-  z-index: 1; 
+  padding-bottom: 15px;
+  margin-top: -10px;
+  background-color: rgba(0, 42, 125, 0.938);
+  z-index: 1;
 }
 
 .historico-transações ul {
-  max-height: 290px; 
+  max-height: 290px;
   overflow-y: auto;
-  padding: 0 15px; 
+  padding: 0 15px;
   border-radius: 0;
 }
 
@@ -141,7 +145,7 @@
   width: 100%;
   background-color: #e8eeef;
   color: #2c2c2c !important;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 10px;
   margin-top: 5px;
 }
@@ -149,7 +153,7 @@
 .graficoGastos h2 {
   margin-top: 35px;
   margin-bottom: 30px;
-  
+
 }
 
 
@@ -161,7 +165,7 @@
 .btnBlind {
   border: 0;
   border-radius: 20px;
-  padding: 2px 1px 8px 1px ;
+  padding: 2px 1px 8px 1px;
   cursor: pointer;
   background-color: #FF2A97;
   transition: background-color 0.3s, box-shadow 0.3s;
@@ -173,42 +177,61 @@
 
 .btnBlind:hover {
   background-color: #ff168e;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
+}
+
+@media (max-width: 1024px) {
+  * {
+    font-size: 30px;
+
+  }
 }
 
 @media (max-width: 600px) {
   * {
     font-size: 15px;
   }
+
   label {
     font-size: 17px;
   }
+
   .division {
     width: 46vw;
     text-align: center;
   }
+
   .division .button {
-    padding: 20px 30px 20px 30px ;
+    padding: 20px 30px 20px 30px;
   }
-  .div-saldos{
+
+  .div-saldos {
     width: 31vw;
     height: 20vh;
+    margin: 2vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
+
 @media (max-width: 400px) {
   * {
     font-size: 13px;
   }
+
   .division {
     width: 47vw;
     text-align: center;
   }
+
   .division .button {
-    padding: 20px 30px 20px 30px ;
+    padding: 20px 30px 20px 30px;
   }
-  .div-saldos{
+
+  .div-saldos {
     width: 32vw;
     height: 20vh;
+    margin: 2vh auto;
   }
 }
-

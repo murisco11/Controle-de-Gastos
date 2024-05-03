@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white !important
+}
+
+body {
+    font-family: 'Inter', sans-serif !important;
+    background-image: url("estilo/Assets/background.jpg");
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center;
+    height: 100vh;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 60px;
+
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    background-color: rgb(0, 42, 125);
+}
+
+nav {
+    display: flex;
+    margin-left: 2vw;
+}
+
+nav div {
+    display: flex;
+    align-items: center;
+}
+
+a {
+    font-weight: 800;
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+a img {
+    margin-right: 5px;
+}
+
+.container {
+    background-color: rgba(0, 42, 125, 0.959);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.253);
+    width: 70vw;
+    height: 81vh;
+    margin: 4vh auto;
+    padding: 10px
+}
+
+.container h2 {
+    text-align: center;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+.division1 {
+    background-color: rgba(3, 56, 163, 0.959);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.253);
+    height: 40vh;
+    box-sizing: border-box;
+    padding: 2vh;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+    border-radius: 1%;
+}
+
+.container-selinputs {
+    display: flex;
+    justify-content: space-around;
+}
+
+.selInputs {
+    font-size: 1.1rem;
+    display: flex;
+    width: 30vw;
+    flex-direction: column;
+    text-align: center;
+}
+
+.inputs {
+    background: rgb(207, 207, 207) !important;
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 12px;
+    width: 80%;
+    background-color: #e8eeef;
+    color: #2c2c2c !important;
+    margin: 2vh auto;
+}
+
+.inputs:hover {
+    background-color: #ff168e;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+}
+
+#buttonConfirm {
+    border: 0;
+    border-radius: 20px;
+    padding: 10px 100px;
+    margin: 25px auto 0 auto;
+    cursor: pointer;
+    background-color: #FF2A97;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+    font-size: 1.1rem;
+}
+
+#buttonConfirm:hover {
+    background-color: #ff168e;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+}
+
+#resultado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+@media (max-width: 1280px) {
+    * {
+        font-size: 25px !important;
+    }
+
+    .container {
+        width: 90vw;
+        height: 78vh;
+    }
+}
+
+.division1 {
+    height: 45vh;
+}
+
+nav a p {
+    margin-left: 7px;
+}
+
+#buttonConfirm {
+    margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+    * {
+        font-size: 30px !important;
+    }
+
+    .container {
+        width: 90vw;
+        height: 70vh;
+    }
+}
+
+.division1 {
+    height: 45vh;
+}
+
+nav a p {
+    margin-left: 7px;
+}
+
+#buttonConfirm {
+    margin-top: 40px;
+}
+
+#resultado {
+    margin-top: 20px
+}
+
+@media (max-width: 950px) {
+    * {
+        font-size: 30px !important;
+    }
+
+    .container {
+        width: 90vw;
+    }
+}
+
+nav a p {
+    margin-left: 7px;
+}
+
+#buttonConfirm {
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    * {
+        font-size: 25px !important;
+    }
+
+    .container {
+        width: 90vw;
+        height: 72vh;
+    }
+}
+
+nav a p {
+    margin-left: 7px;
+}
+
+#buttonConfirm {
+    margin-top: 40px;
+}
+
+
+@media (max-width: 600px) {
+    * {
+        font-size: 20px !important;
+    }
+
+    .container {
+        width: 90vw;
+        height: 75vh;
+    }
+}
+
+nav a p {
+    margin-left: 5px;
+}
+
+@media (max-width: 400px) {
+    * {
+        font-size: 14px !important;
+    }
+
+    .container {
+        width: 90vw;
+        height: 76vh;
+    }
+}

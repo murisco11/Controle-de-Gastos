@@ -96,7 +96,7 @@ function atualizarSaldo() {
     const saldoCaixa = saldoReceitas - saldoDespesas;
     document.getElementById('saldoTotal').textContent = `${formatarNumero(saldoTotal)}`;
     document.getElementById('saldoCaixa').textContent = `${formatarNumero(saldoCaixa)}`;
-    document.getElementById('poupanca').textContent = `Poupança: ${formatarNumero(poupanca)}`;
+    document.getElementById('poupanca').textContent = `${formatarNumero(poupanca)}`;
 }
 
 function formatarNumero(numero) {
@@ -126,14 +126,14 @@ function atualizarGrafico() {
 
     const entradas = transacoes.filter(transacao => transacao.tipo === 'receita');
     const saidas = transacoes.filter(transacao => transacao.tipo === 'despesa');
-    
+
     const labels = ['Entradas', 'Saídas', 'Poupança'];
     const data = [
         entradas.reduce((acc, transacao) => acc + transacao.valor, 0),
         saidas.reduce((acc, transacao) => acc + transacao.valor, 0),
         poupanca
     ];
-    
+
     if (chart) {
         chart.data.labels = labels;
         chart.data.datasets[0].data = data;
@@ -159,8 +159,21 @@ function atualizarGrafico() {
             }
         });
     }
-    
+
 }
 
+let iSaldoTotal = 0;
+const saldoTotalElemento = document.getElementById('saldoTotal');
+const saldoCaixaElemento = document.getElementById('saldoCaixa');
+const poupancaElemento = document.getElementById('poupanca');
 
-
+function esconderDinheiroTotal() {
+    if (iSaldoTotal % 2 === 0) {
+        saldoTotalElemento.textContent = "****";
+        saldoCaixaElemento.textContent = "****";
+        poupancaElemento.textContent = "****";
+    } else {
+        atualizarSaldo()
+    }
+    iSaldoTotal++;
+}

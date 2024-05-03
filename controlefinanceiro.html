@@ -17,84 +17,107 @@
 <body class="cf">
   <header> <!--Topo da página, com a âncora para voltar para a página inicial-->
     <nav>
-      <a style="font-weight: 800; font-size: 1.2em; color: rgb(0, 0, 0);" href="index.html">
-        <img src="estilo/Assets/arrow.png" alt="calculadora" width="30" height="25" class="mr-2" />
-        Página inicial</a>
+      <div>
+        <a style="font-weight: 800; font-size: 1.2em; color: rgb(0, 0, 0);" href="index.html">
+          <img src="estilo/Assets/arrow.png" alt="calculadora" width="30" height="25" class="mr-2" />
+          Página inicial</a>
+      </div>
+      <div>
+        <a style="font-weight: 800; font-size: 1.2em; color: rgb(0, 0, 0);" href="index.html">
+          <img src="estilo/Assets/arrow.png" style="transform: rotate(180deg);" alt="simulador" width="30" height="25"
+            class="mr-2" />
+          Simulador finan.</a>
+      </div>
     </nav>
   </header>
 
   <div class="container-content"> <!--CONTAINER sem HISTÓRICO-->
-  <div class="addTransacao division"> <!--Div da adição de transição-->
-    <h2>
-      Adicionar transação
-    </h2>
-    <div>
-      <label for="descricao">Descrição:</label>
-      <input type="text" name="Descricao_valor" id="descricao" class="inputs">
-      <small id="descricaoHelp" class="form-text text-danger"></small>
-    </div>
-
-    <div>
-      <label for="valor">Valor:</label>
-      <input type="text" name="Valor_transacao" id="valor" class="inputs">
-      <small id="valorHelp" class="form-text text-danger"></small>
-    </div>
-
-    <div>
-      <label for="Tipo de Transção">Tipo de transação:</label>
-      <select id="tipo" class="inputs" onchange="alterarTipoTransacao()">
-        <option value="receita">Receita</option>
-        <option value="despesa">Despesa</option>
-        <option value="retirarPoupanca">Retirar da poupança</option>
-        <option value="adicionarPoupanca">Adicionar a poupança</option>
-      </select>
-    </div>
-    <button onclick="adicionarTransacao()" class="button">
-      Adicionar
-    </button>
-  </div> <!--Fim da Div da adição de transição-->
-
-  <div class="container-saldos division"> <!--Div Container Saldos -->
-    <div class="div-saldos"> <!--Div do Saldo total-->
+    <div class="addTransacao division"> <!--Div da adição de transição-->
       <h2>
-        <!--<img src="estilo/Icones BootStrap/bank.svg" alt="Banco" width="30" height="25" /> -->
-        Saldo total:
+        Adicionar transação
       </h2>
-      <h3 id="saldoTotal">R$ 0,00</h3>
-    </div>
-    <div class="div-saldos"> <!--Div do Saldo em conta-->
-      <h2>
-        <!--<img src="estilo/Icones BootStrap/wallet2.svg" alt="carteira" width="30" height="26" /> -->
-        Saldo na conta:
-      </h2>
-      <h3 id="saldoCaixa">R$ 0,00</h3>
-    </div>
-    <div class="div-saldos"> <!--Div - Poupança-->
-      <h2>
-        <!--<img src="estilo/Icones BootStrap/piggy-bank.svg" alt="porquinho" width="30" height="34" /> -->
-        Saldo na poupança
-      </h2>
-      <h3 id="poupanca">R$ 0,00</h3>
-      <small id="poupancaHelp" class="form-text text-danger"></small>
-    </div>
-  </div> <!--Div Container Saldos -->
+      <div>
+        <label for="descricao">Descrição:</label>
+        <input type="text" name="Descricao_valor" id="descricao" class="inputs">
+        <small id="descricaoHelp" class="form-text text-danger"></small>
+      </div>
 
-  <div class="division historico-transações"> <!--Div do histórico de transações-->
-    <h2>
-      <!--<img src="estilo/Icones BootStrap/clock-history.svg" alt="relogio" width="30" height="26" /> -->
-      Histórico de transações
-    </h2>
-    <ul id="historico"></ul>
-  </div> 
-</div>
+      <div>
+        <label for="valor">Valor:</label>
+        <input type="text" name="Valor_transacao" id="valor" class="inputs">
+        <small id="valorHelp" class="form-text text-danger"></small>
+      </div>
 
-  <div> <!--Div do gráfico-->
-    <h2>
-      <img src="estilo/Icones BootStrap/graph-up-arrow.svg" alt="grafico" width="30" height="26" />
-      Gráfico das transações
-    </h2>
-    <canvas id="graficoGastos" width="10" height="10"></canvas>
+      <div>
+        <label for="Tipo de Transção">Tipo de transação:</label>
+        <select id="tipo" class="inputs" onchange="alterarTipoTransacao()">
+          <option value="receita">Receita</option>
+          <option value="despesa">Despesa</option>
+          <option value="retirarPoupanca">Retirar da poupança</option>
+          <option value="adicionarPoupanca">Adicionar a poupança</option>
+        </select>
+      </div>
+      <button onclick="adicionarTransacao()" class="button">
+        Adicionar
+      </button>
+    </div> <!--Fim da Div da adição de transição-->
+
+    <div class="container-saldos division"> <!--Div Container Saldos -->
+      <button onclick="esconderDinheiroTotal()" class="btnBlind"><img src="estilo/Icones BootStrap/eye.svg"
+          class="imgBlind" alt="" srcset=""> </button>
+      <div class="div-saldos"> <!--Div do Saldo total-->
+
+        <h2>
+          <!--<img src="estilo/Icones BootStrap/bank.svg" alt="Banco" width="30" height="25" /> -->
+
+          Saldo total:
+        </h2>
+
+        <h3 id="saldoTotal">R$ 0,00</h3>
+      </div>
+      <div class="div-saldos"> <!--Div do Saldo em conta-->
+
+
+        <h2>
+          <!--<img src="estilo/Icones BootStrap/wallet2.svg" alt="carteira" width="30" height="26" /> -->
+          Saldo na conta:
+        </h2>
+
+        <h3 id="saldoCaixa">R$ 0,00</h3>
+      </div>
+      <div class="div-saldos"> <!--Div - Poupança-->
+
+        <h2>
+          <!--<img src="estilo/Icones BootStrap/piggy-bank.svg" alt="porquinho" width="30" height="34" /> -->
+          Poupança:
+        </h2>
+
+
+        <h3 id="poupanca">R$ 0,00</h3>
+        <small id="poupancaHelp" class="form-text text-danger"></small>
+      </div>
+    </div> <!--Div Container Saldos -->
   </div>
+
+  <div class="container-content">
+    <div class="division historico-transações"> <!--Div do histórico de transações-->
+      <h2>
+        <!--<img src="estilo/Icones BootStrap/clock-history.svg" alt="relogio" width="30" height="26" /> -->
+        Histórico de transações
+      </h2>
+      <ul id="historico"></ul>
+    </div>
+    <div class="division"> <!--Div do gráfico-->
+      <div class="graficoGastos">
+        <h2>
+          <img src="estilo/Icones BootStrap/graph-up-arrow.svg" alt="grafico" width="30" height="26" />
+          Gráfico das transações
+        </h2>
+        <canvas id="graficoGastos" width="10" height="10"></canvas>
+      </div>
+    </div>
+  </div> ////////////////
+
   <!--Script e Inclusão do Chart.js pro gráfico-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
   <script src="script.js"></script>

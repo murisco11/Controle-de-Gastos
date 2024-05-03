@@ -1,9 +1,8 @@
-
 .inter {
     font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;   
+    font-optical-sizing: auto;
     font-variation-settings:
-        "slnt"0;
+        "slnt" 0;
 }
 
 * {
@@ -64,8 +63,8 @@ footer {
     justify-content: center;
     align-items: center;
     color: white;
-    padding:10px;
-    text-align:center;
+    padding: 10px;
+    text-align: center;
 }
 
 .button {
@@ -83,7 +82,7 @@ footer {
 
 .button:hover {
     background-color: #ff168e;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
 }
 
 @media (max-width: 1200px) {
@@ -92,6 +91,7 @@ footer {
         margin: 7vh auto;
         font-size: 1.8rem
     }
+
     footer {
         font-size: 1.5rem;
     }
@@ -116,24 +116,26 @@ footer {
 @media (max-width: 600px) {
     .card {
         width: 90vw;
-        margin:7vh auto;
+        margin: 7vh auto;
         font-size: 1.05rem
     }
+
     footer {
         font-size: 0.9rem;
-        padding:3px
+        padding: 3px
     }
 }
 
 @media (max-width: 400px) {
     .card {
         width: 90vw;
-        margin:5vh auto;
+        margin: 5vh auto;
         font-size: 0.8rem;
         padding: 30px;
     }
+
     footer {
-        font-size:0.75rem;
+        font-size: 0.75rem;
         height: 10vh;
         padding: 2px
     }

@@ -131,7 +131,7 @@ function atualizarHistorico() {
     historicoElemento.innerHTML = '';
     transacoes.forEach(transacao => {
         const listItem = document.createElement('li');
-        listItem.classList.add('list-group-item');
+        listItem.classList.add('list-group-item', 'transacao');
         let descricao = transacao.descricao;
         if (transacao.tipo === 'adicionarPoupanca') {
             descricao = 'Adicionado à poupança';

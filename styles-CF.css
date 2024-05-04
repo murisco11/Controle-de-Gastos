@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: white !important
+  color: white !important;
 }
 
 /* Estilos gerais para o corpo da página */
@@ -17,8 +17,6 @@ body {
   color: #333;
   line-height: 1.6;
   padding-top: 60px;
-  /* Ajuste o padding superior do corpo para que o conteúdo não fique oculto sob o cabeçalho */
-
 }
 
 /* Estilos para o cabeçalho */
@@ -44,7 +42,7 @@ header nav a {
 }
 
 .arrowRight {
-  margin-left: 3px
+  margin-left: 3px;
 }
 
 .container-content {
@@ -68,7 +66,6 @@ header nav a {
   flex-direction: column;
   justify-content: space-evenly;
   background-color: rgba(0, 42, 125, 0.959);
-
 }
 
 .division .inputs {
@@ -85,9 +82,8 @@ header nav a {
   color: #333 !important;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 10px;
-  margin-top: 5px
+  margin-top: 5px;
 }
-
 
 .division h2 {
   font-size: 1.5em;
@@ -119,7 +115,7 @@ header nav a {
   border-radius: 20px;
   box-shadow: 0 2px 4px #ffb8dd, 0 -2px 4px #ffb8dd;
   padding: 15px;
-  margin: 15px
+  margin: 15px;
 }
 
 .div-saldos h3 {
@@ -140,7 +136,6 @@ header nav a {
   border-radius: 0;
 }
 
-
 .historico-transações ul li {
   background: rgb(207, 207, 207) !important;
   border: none;
@@ -160,9 +155,7 @@ header nav a {
 .graficoGastos h2 {
   margin-top: 35px;
   margin-bottom: 30px;
-
 }
-
 
 .graficoGastos canvas {
   max-width: 60vw;
@@ -192,7 +185,6 @@ header nav a {
 @media (max-width: 1024px) {
   * {
     font-size: 30px;
-
   }
 }
 
@@ -251,4 +243,8 @@ header nav a {
 
 .salto {
   transform: translateY(-10px);
+}
+
+.historico-transações ul li.transacao {
+  border-radius: 10px;
 }

@@ -111,6 +111,8 @@ header nav a {
 .division .button:hover {
   background-color: #ff168e;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
 
 .div-saldos {

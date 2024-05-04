@@ -34,7 +34,7 @@ function clicouConfirm(evento) {
         alert("Não pode ter número negativo")
     }
     else {
-        divResultado.innerHTML = `<h3>Você vai alcançar R$ ${formatarNumero(dinheiroAlmejado)} em ${tempoNecessario} mesess<h3> `
+        divResultado.innerHTML = `<h3>Você vai alcançar R$ ${formatarNumero(dinheiroAlmejado)} em ${tempoNecessario} meses<h3> `
     }
 
 

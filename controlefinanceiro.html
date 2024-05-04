@@ -37,20 +37,6 @@
         Adicione sua transação
       </h2>
       <div>
-        <label for="descricao">Descrição:</label> <br>
-        <input type="text" name="Descricao_valor" id="descricao" class="inputs"
-          placeholder="Adicione um lembrete sobre sua transação.">
-        <small id="descricaoHelp" class="form-text text-danger"></small>
-      </div>
-
-      <div>
-        <label for="valor">Valor:</label>
-        <input type="text" name="Valor_transacao" id="valor" class="inputs"
-          placeholder="Adicione o valor de sua transação.">
-        <small id="valorHelp" class="form-text text-danger"></small>
-      </div>
-
-      <div>
         <label for="Tipo de Transção">Tipo de transação:</label>
         <select id="tipo" class="inputs" onchange="alterarTipoTransacao()">
           <option value="receita">Receita</option>
@@ -58,6 +44,18 @@
           <option value="retirarPoupanca">Retirar da poupança</option>
           <option value="adicionarPoupanca">Adicionar a poupança</option>
         </select>
+      </div>
+      <div>
+        <label for="descricao">Descrição:</label> <br>
+        <input type="text" name="Descricao_valor" id="descricao" class="inputs"
+          placeholder="Adicione um lembrete sobre sua transação.">
+        <small id="descricaoHelp" class="form-text text-danger"></small>
+      </div>
+      <div>
+        <label for="valor">Valor:</label>
+        <input type="text" name="Valor_transacao" id="valor" class="inputs"
+          placeholder="Adicione o valor de sua transação.">
+        <small id="valorHelp" class="form-text text-danger"></small>
       </div>
       <button onclick="adicionarTransacao()" class="button">
         Adicionar

@@ -146,7 +146,7 @@ function atualizarGrafico() {
                 datasets: [{
                     label: 'Valor',
                     data: data,
-                    backgroundColor: ['green', 'red', 'blue'],
+                    backgroundColor: ['#76d341', '#f03d3d', '#418cd3'],
                     borderRadius: 2
                 }]
             },

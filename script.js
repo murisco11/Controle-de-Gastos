@@ -6,6 +6,17 @@ window.onload = function () {
     atualizarGrafico();
 };
 
+function alterarTipoTransacao() {
+    const tipoSelecionado = document.getElementById('tipo').value;
+    const divDescricao = document.querySelector('.addTransacao .descricaoDiv');
+
+    if (tipoSelecionado === 'retirarPoupanca' || tipoSelecionado === 'adicionarPoupanca') {
+        divDescricao.style.display = 'none';
+    } else {
+        divDescricao.style.display = 'block';
+    }
+}
+
 function adicionarTransacao() {
     const descricao = document.getElementById('descricao').value.trim();
     const valor = parseFloat(document.getElementById('valor').value);
@@ -17,7 +28,7 @@ function adicionarTransacao() {
 
     let camposVazios = 0;
 
-    if (descricao === '') {
+    if (descricao === '' && tipo !== 'retirarPoupanca' && tipo !== 'adicionarPoupanca') {
         document.getElementById('descricaoHelp').textContent = 'Necessário adicionar uma descrição a sua transação';
         camposVazios++;
     }
@@ -28,10 +39,27 @@ function adicionarTransacao() {
     }
 
     if (tipo === 'adicionarPoupanca' || tipo === 'retirarPoupanca') {
-    } else {
-
-        const mes = (new Date()).getMonth() + 1;
-        const ano = (new Date()).getFullYear();
+        if (tipo === 'adicionarPoupanca') {
+            adicionarPoupanca(valor);
+        } else if (tipo === 'retirarPoupanca') {
+            if (valor > poupanca) {
+                document.getElementById('poupancaHelp').textContent = 'Você não tem saldo suficiente na poupança.';
+                return;
+            }
+            retirarPoupanca(valor);
+        }
+        const transacao = {
+            descricao: tipo === 'adicionarPoupanca' ? 'Adicionado à poupança' : 'Retirado da poupança',
+            valor: valor,
+            tipo: tipo
+        };
+        transacoes.push(transacao);
+        atualizarSaldo();
+        atualizarHistorico();
+        atualizarGrafico();
+        document.getElementById('descricao').value = '';
+        document.getElementById('valor').value = '';
+        return;
     }
 
     if (camposVazios > 0) {
@@ -43,18 +71,6 @@ function adicionarTransacao() {
         valor: valor,
         tipo: tipo
     };
-
-    if (tipo === 'adicionarPoupanca') {
-        adicionarPoupanca(valor);
-        transacao.descricao = 'Adicionado à poupança';
-    } else if (tipo === 'retirarPoupanca') {
-        if (valor > poupanca) {
-            document.getElementById('poupancaHelp').textContent = 'Você não tem saldo suficiente na poupança.';
-            return;
-        }
-        retirarPoupanca(valor);
-        transacao.descricao = 'Retirado da poupança';
-    }
 
     transacoes.push(transacao);
 
@@ -115,7 +131,7 @@ function atualizarHistorico() {
         } else if (transacao.tipo === 'retirarPoupanca') {
             descricao = 'Retirado da poupança';
         }
-        listItem.textContent = `${transacao.descricao}: ${formatarNumero(transacao.valor)}`;
+        listItem.textContent = `${descricao}: ${formatarNumero(transacao.valor)}`;
         historicoElemento.appendChild(listItem);
     });
 }

@@ -52,11 +52,14 @@ header nav a {
   justify-content: center;
 }
 
+#tipo option {
+  color: #0e0d0d !important;
+}
 
 .division {
   padding: 20px;
   margin: 20px 0;
-  border-radius: 5px;
+  border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 45vw;
   margin: 4vh 1vw;
@@ -65,10 +68,12 @@ header nav a {
   flex-direction: column;
   justify-content: space-evenly;
   background-color: rgba(0, 42, 125, 0.959);
+
 }
 
 .division .inputs {
   background: rgb(207, 207, 207) !important;
+  border-radius: 10px;
   border: none;
   font-size: 16px;
   height: auto;
@@ -77,11 +82,12 @@ header nav a {
   padding: 12px;
   width: 100%;
   background-color: #e8eeef;
-  color: #2c2c2c !important;
+  color: #333 !important;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 10px;
   margin-top: 5px
 }
+
 
 .division h2 {
   font-size: 1.5em;
@@ -104,7 +110,7 @@ header nav a {
 
 .division .button:hover {
   background-color: #ff168e;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
 }
 
 .div-saldos {
@@ -234,4 +240,11 @@ header nav a {
     height: 20vh;
     margin: 2vh auto;
   }
+}
+.div-saldos {
+  transition: transform 0.5s ease-in-out;
+}
+
+.salto {
+  transform: translateY(-10px);
 }

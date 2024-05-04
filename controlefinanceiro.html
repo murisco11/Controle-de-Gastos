@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
-<body class="cf">
+<body>
   <header> <!--Topo da página, com a âncora para voltar para a página inicial-->
     <nav>
       <div>
@@ -34,17 +34,19 @@
   <div class="container-content"> <!--CONTAINER sem HISTÓRICO-->
     <div class="addTransacao division"> <!--Div da adição de transição-->
       <h2>
-        Adicionar transação
+        Adicione sua transação
       </h2>
       <div>
-        <label for="descricao">Descrição:</label>
-        <input type="text" name="Descricao_valor" id="descricao" class="inputs">
+        <label for="descricao">Descrição:</label> <br>
+        <input type="text" name="Descricao_valor" id="descricao" class="inputs"
+          placeholder="Adicione um lembrete sobre sua transação.">
         <small id="descricaoHelp" class="form-text text-danger"></small>
       </div>
 
       <div>
         <label for="valor">Valor:</label>
-        <input type="text" name="Valor_transacao" id="valor" class="inputs">
+        <input type="text" name="Valor_transacao" id="valor" class="inputs"
+          placeholder="Adicione o valor de sua transação.">
         <small id="valorHelp" class="form-text text-danger"></small>
       </div>
 
@@ -66,37 +68,30 @@
       <button onclick="esconderDinheiroTotal()" class="btnBlind"><img src="estilo/Icones BootStrap/eye.svg"
           class="imgBlind" alt="" srcset=""> </button>
       <div class="div-saldos"> <!--Div do Saldo total-->
-
         <h2>
           <!--<img src="estilo/Icones BootStrap/bank.svg" alt="Banco" width="30" height="25" /> -->
-
           Saldo total:
         </h2>
-
         <h3 id="saldoTotal">R$ 0,00</h3>
       </div>
       <div class="div-saldos"> <!--Div do Saldo em conta-->
-
-
         <h2>
           <!--<img src="estilo/Icones BootStrap/wallet2.svg" alt="carteira" width="30" height="26" /> -->
           Saldo na conta:
         </h2>
-
         <h3 id="saldoCaixa">R$ 0,00</h3>
       </div>
       <div class="div-saldos"> <!--Div - Poupança-->
-
         <h2>
           <!--<img src="estilo/Icones BootStrap/piggy-bank.svg" alt="porquinho" width="30" height="34" /> -->
           Poupança:
         </h2>
-
-
         <h3 id="poupanca">R$ 0,00</h3>
         <small id="poupancaHelp" class="form-text text-danger"></small>
       </div>
     </div> <!--Div Container Saldos -->
+  </div>
+
   </div>
 
   <div class="container-content">

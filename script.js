@@ -177,3 +177,45 @@ function esconderDinheiroTotal() {
     }
     iSaldoTotal++;
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var inputs = document.querySelectorAll('input[type="text"]');
+    
+    inputs.forEach(function(input) {
+        input.addEventListener("click", function() {
+            if (this.placeholder !== '') {
+                this.dataset.placeholder = this.placeholder;
+                this.placeholder = '';
+            }
+        });
+
+        input.addEventListener("blur", function() {
+            if (this.placeholder === '') {
+                this.placeholder = this.dataset.placeholder;
+            }
+        });
+    });
+});
+
+function realizarSalto(elemento) {
+    elemento.classList.add('salto');
+  }
+  
+  function pararSalto(elemento) {
+    elemento.classList.remove('salto');
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var divsSaldos = document.querySelectorAll('.div-saldos');
+    
+    divsSaldos.forEach(function(div) {
+      div.addEventListener('mouseover', function() {
+        realizarSalto(this);
+      });
+      
+      div.addEventListener('mouseout', function() {
+        pararSalto(this);
+      });
+    });
+  });
+  

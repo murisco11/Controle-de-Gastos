@@ -1,8 +1,7 @@
 .inter {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    font-variation-settings:
-        "slnt"0;
+    font-variation-settings: "slnt"0;
 }
 
 * {
@@ -19,11 +18,6 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     height: 100vh;
-
-}
-
-.animacao {
-    display: inline;
 }
 
 .card {
@@ -87,7 +81,7 @@ footer {
     .card {
         width: 90vw;
         margin: 7vh auto;
-        font-size: 1.8rem
+        font-size: 1.8rem;
     }
 
     footer {
@@ -95,15 +89,7 @@ footer {
     }
 }
 
-@media (max-width: 1023px) {
-    .card {
-        width: 90vw;
-        margin: 7vh auto;
-        font-size: 1.8rem
-    }
-}
-
-@media (max-width: 800px) {
+@media (max-width: 1023px), (max-width: 800px) {
     .card {
         width: 80vw;
         margin: 7vh auto;
@@ -115,12 +101,12 @@ footer {
     .card {
         width: 90vw;
         margin: 7vh auto;
-        font-size: 1.05rem
+        font-size: 1.05rem;
     }
 
     footer {
         font-size: 0.9rem;
-        padding: 3px
+        padding: 3px;
     }
 }
 
@@ -135,6 +121,6 @@ footer {
     footer {
         font-size: 0.75rem;
         height: 10vh;
-        padding: 2px
+        padding: 2px;
     }
 }

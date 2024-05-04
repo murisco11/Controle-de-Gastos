@@ -63,8 +63,8 @@ a img {
 
 .container h2 {
     text-align: center;
-    margin-top: 1vh;
-    margin-bottom: 2vh;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
 }
 
 .division1 {
@@ -101,7 +101,7 @@ a img {
     margin: 0;
     outline: 0;
     padding: 12px;
-    width: 80%;
+    width: 20vw;
     background-color: #e8eeef;
     color: #2c2c2c !important;
     margin: 2vh auto;
@@ -110,8 +110,8 @@ a img {
 .inputs:hover {
     background-color: #ff168e;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+    transform: scale(1.035);
+    transition: 300ms;
 }
 
 #buttonConfirm {
@@ -127,11 +127,14 @@ a img {
     text-align: center;
     display: block;
     font-size: 1.1rem;
+    margin-top: 8.5vh;
 }
 
 #buttonConfirm:hover {
     background-color: #ff168e;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
+    transform: scale(1.035);
+    transition: 300ms
 }
 
 #resultado {
@@ -162,18 +165,14 @@ nav a p {
     margin-left: 7px;
 }
 
-#buttonConfirm {
-    margin-top: 40px;
-}
-
 @media (max-width: 1024px) {
     * {
-        font-size: 30px !important;
+        font-size: 24px !important;
     }
 
     .container {
         width: 90vw;
-        height: 70vh;
+        height: 82vh;
     }
 }
 
@@ -185,9 +184,7 @@ nav a p {
     margin-left: 7px;
 }
 
-#buttonConfirm {
-    margin-top: 40px;
-}
+
 
 #resultado {
     margin-top: 20px
@@ -207,9 +204,6 @@ nav a p {
     margin-left: 7px;
 }
 
-#buttonConfirm {
-    margin-top: 40px;
-}
 
 @media (max-width: 768px) {
     * {
@@ -218,16 +212,12 @@ nav a p {
 
     .container {
         width: 90vw;
-        height: 72vh;
+        height: 70vh;
     }
 }
 
 nav a p {
     margin-left: 7px;
-}
-
-#buttonConfirm {
-    margin-top: 40px;
 }
 
 

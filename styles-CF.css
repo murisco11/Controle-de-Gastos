@@ -107,7 +107,7 @@ header nav a {
 .division .button:hover {
   background-color: #ff168e;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
-  transform: scale(1.05);
+  transform: scale(1.03);
   transition: transform 0.3s ease;
 }
 
@@ -116,51 +116,16 @@ header nav a {
   box-shadow: 0 2px 4px #ffb8dd, 0 -2px 4px #ffb8dd;
   padding: 15px;
   margin: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .div-saldos h3 {
   text-align: center;
 }
 
-.historico-transações h2 {
-  padding-bottom: 15px;
-  margin-top: -10px;
-  background-color: rgba(0, 42, 125, 0.938);
-  z-index: 1;
-}
 
-.historico-transações ul {
-  max-height: 290px;
-  overflow-y: auto;
-  padding: 0 15px;
-  border-radius: 0;
-}
-
-.historico-transações ul li {
-  background: rgb(207, 207, 207) !important;
-  border: none;
-  font-size: 16px;
-  height: auto;
-  margin: 0;
-  outline: 0;
-  padding: 12px;
-  width: 100%;
-  background-color: #e8eeef;
-  color: #2c2c2c !important;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-
-.graficoGastos h2 {
-  margin-top: 35px;
-  margin-bottom: 30px;
-}
-
-.graficoGastos canvas {
-  max-width: 60vw;
-  max-height: 60vh;
-}
 
 .btnBlind {
   border: 0;
@@ -178,73 +143,214 @@ header nav a {
 .btnBlind:hover {
   background-color: #ff168e;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
-  transform: scale(1.05);
+  transform: scale(1.03);
   transition: transform 0.3s ease;
 }
 
-@media (max-width: 1024px) {
+.saldo {
+  transform: translateY(-10px);
+}
+
+.media2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center !important;
+}
+
+.media2 h2 {
+  margin-bottom: 3vh;
+}
+
+#historico,
+.grafico {
+  width: 30vw;
+  height: 60vh;
+  background-color: red;
+}
+
+ul {
+  overflow-y: auto;
+}
+
+ul li {
+  background: rgb(207, 207, 207) !important;
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 12px;
+  width: 90%;
+  background-color: #e8eeef;
+  color: #333 !important;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin: 5px auto;
+
+}
+
+@media (orientation: portrait) {
   * {
-    font-size: 30px;
+    font-size: 1.6rem !important;
+  }
+
+  .container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .division {
+    width: 80vw;
+    text-align: center;
+    display: flex;
+  }
+
+  .division .button {
+    padding: 20px 60px 20px 60px;
+  }
+
+  .div-saldos {
+    width: 50vw;
+    height: 15vh;
+    margin: 2vh auto;
+  }
+
+  .btnBlind {
+    margin: 0 auto;
+    padding: 15px 25vw;
+  }
+
+  #historico,
+  .grafico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 45vh;
+    width: 80vw;
+  }
+}
+
+@media (max-width: 800px) {
+  * {
+    font-size: 1.25rem !important;
+  }
+
+  .container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .division {
+    width: 80vw;
+    text-align: center;
+    display: flex;
+  }
+
+  .division .button {
+    padding: 20px 60px 20px 60px;
+  }
+
+  .div-saldos {
+    width: 50vw;
+    height: 15vh;
+    margin: 2vh auto;
+  }
+
+  .btnBlind {
+    margin: 0 auto;
+    padding: 15px 25vw;
+  }
+
+  #historico,
+  .grafico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 45vh;
+    width: 80vw;
   }
 }
 
 @media (max-width: 600px) {
   * {
-    font-size: 15px;
+    font-size: 1.2rem !important;
   }
 
-  label {
-    font-size: 17px;
+  .container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .division {
-    width: 46vw;
+    width: 80vw;
     text-align: center;
+    display: flex;
   }
 
   .division .button {
-    padding: 20px 30px 20px 30px;
+    padding: 20px 60px 20px 60px;
   }
 
   .div-saldos {
-    width: 31vw;
-    height: 20vh;
+    width: 40vw;
+    height: 15vh;
     margin: 2vh auto;
+  }
+
+  .btnBlind {
+    margin-bottom: 1vh;
+  }
+
+  #historico,
+  .grafico {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 45vh;
+    width: 80vw;
   }
 }
 
 @media (max-width: 400px) {
   * {
-    font-size: 13px;
+    font-size: 1rem !important;
+  }
+
+  .container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .division {
-    width: 47vw;
+    width: 80vw;
     text-align: center;
+    display: flex;
   }
 
   .division .button {
-    padding: 20px 30px 20px 30px;
+    padding: 20px 60px 20px 60px;
   }
 
   .div-saldos {
-    width: 32vw;
-    height: 20vh;
+    width: 40vw;
+    height: 15vh;
     margin: 2vh auto;
   }
-}
 
-.div-saldos {
-  transition: transform 0.5s ease-in-out;
-}
+  .btnBlind {
+    margin-bottom: 1vh;
+  }
 
-.salto {
-  transform: translateY(-10px);
-}
-
-.historico-transações ul li.transacao {
-  border-radius: 10px;
+  #historico,
+  .grafico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 45vh;
+    width: 80vw;
+  }
 }

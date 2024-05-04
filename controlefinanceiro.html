@@ -64,7 +64,7 @@
 
     <div class="container-saldos division"> <!--Div Container Saldos -->
       <button onclick="esconderDinheiroTotal()" class="btnBlind"><img src="estilo/Icones BootStrap/eye.svg"
-          class="imgBlind" alt="" srcset=""> </button>
+          id="imgBlind" class="imgBlind" alt="" srcset=""> </button>
       <div class="div-saldos"> <!--Div do Saldo total-->
         <h2>
           <!--<img src="estilo/Icones BootStrap/bank.svg" alt="Banco" width="30" height="25" /> -->
@@ -94,20 +94,28 @@
   </div>
 
   <div class="container-content">
-    <div class="division historico-transações"> <!--Div do histórico de transações-->
-      <h2>
-        <img src="estilo/Icones BootStrap/clock-history.svg" alt="relogio" width="30" height="26" />
-        Histórico de transações
-      </h2>
-      <ul id="historico"></ul>
+    <div class="division"> <!--Div do histórico de transações-->
+      <div class="media2">
+        <div class="historico-transações">
+          <h2>
+            <img src="estilo/Icones BootStrap/clock-history.svg" alt="relogio" width="30" height="26" />
+            Histórico de transações
+          </h2>
+          <ul id="historico" width="10" height="10"></ul>
+        </div>
+      </div>
     </div>
     <div class="division"> <!--Div do gráfico-->
-      <div class="graficoGastos">
-        <h2>
-          <img src="estilo/Icones BootStrap/graph-up-arrow.svg" alt="grafico" width="30" height="26" />
-          Gráfico das transações
-        </h2>
-        <canvas id="graficoGastos" width="10" height="10"></canvas>
+      <div class="media2">
+        <div class="graficoGastos">
+          <h2>
+            <img src="estilo/Icones BootStrap/graph-up-arrow.svg" alt="grafico" width="30" height="26" />
+            Gráfico das transações
+          </h2>
+          <div class="grafico">
+            <canvas id="graficoGastos"></canvas>
+          </div>
+        </div>
       </div>
     </div>
   </div> ////////////////

@@ -191,12 +191,15 @@ const saldoCaixaElemento = document.getElementById('saldoCaixa');
 const poupancaElemento = document.getElementById('poupanca');
 
 function esconderDinheiroTotal() {
+    imgBlind = document.getElementById('imgBlind')
     if (iSaldoTotal % 2 === 0) {
         saldoTotalElemento.textContent = "****";
         saldoCaixaElemento.textContent = "****";
         poupancaElemento.textContent = "****";
+        imgBlind.src = "estilo/Icones BootStrap/eye-slash.svg"
     } else {
         atualizarSaldo()
+        imgBlind.src = "estilo/Icones BootStrap/eye.svg"
     }
     iSaldoTotal++;
 }
@@ -241,3 +244,4 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+

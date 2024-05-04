@@ -34,11 +34,18 @@ function adicionarTransacao() {
     }
 
     if (isNaN(valor) || valor <= 0) {
-        document.getElementById('valorHelp').textContent = 'Necessário adicionar um valor válido a sua transação';
+        if (tipo === 'retirarPoupanca' || tipo === 'adicionarPoupanca') {
+            document.getElementById('poupancaHelp').textContent = 'Necessário adicionar um valor válido a sua transação';
+        } else {
+            document.getElementById('valorHelp').textContent = 'Necessário adicionar um valor válido a sua transação';
+        }
         camposVazios++;
     }
 
     if (tipo === 'adicionarPoupanca' || tipo === 'retirarPoupanca') {
+        if (camposVazios > 0) {
+            return;
+        }
         if (tipo === 'adicionarPoupanca') {
             adicionarPoupanca(valor);
         } else if (tipo === 'retirarPoupanca') {
@@ -194,18 +201,18 @@ function esconderDinheiroTotal() {
     iSaldoTotal++;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var inputs = document.querySelectorAll('input[type="text"]');
-    
-    inputs.forEach(function(input) {
-        input.addEventListener("click", function() {
+
+    inputs.forEach(function (input) {
+        input.addEventListener("click", function () {
             if (this.placeholder !== '') {
                 this.dataset.placeholder = this.placeholder;
                 this.placeholder = '';
             }
         });
 
-        input.addEventListener("blur", function() {
+        input.addEventListener("blur", function () {
             if (this.placeholder === '') {
                 this.placeholder = this.dataset.placeholder;
             }
@@ -215,23 +222,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function realizarSalto(elemento) {
     elemento.classList.add('salto');
-  }
-  
-  function pararSalto(elemento) {
+}
+
+function pararSalto(elemento) {
     elemento.classList.remove('salto');
-  }
-  
-  document.addEventListener('DOMContentLoaded', function() {
+}
+
+document.addEventListener('DOMContentLoaded', function () {
     var divsSaldos = document.querySelectorAll('.div-saldos');
-    
-    divsSaldos.forEach(function(div) {
-      div.addEventListener('mouseover', function() {
-        realizarSalto(this);
-      });
-      
-      div.addEventListener('mouseout', function() {
-        pararSalto(this);
-      });
+
+    divsSaldos.forEach(function (div) {
+        div.addEventListener('mouseover', function () {
+            realizarSalto(this);
+        });
+
+        div.addEventListener('mouseout', function () {
+            pararSalto(this);
+        });
     });
-  });
-  
+});

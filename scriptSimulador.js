@@ -31,8 +31,8 @@ function clicouConfirm(evento) {
     } else if (dinheiroInicial >= dinheiroAlmejado) {
         alert("O dinheiro inicial não pode ser maior que o dinheiro almejado!")
     } else if (dinheiroInicial < 0 || dinheiroAlmejado < 0 || porcentagem < 0 || dinheiroMes < 0) {
-        alert ("Não pode ter número negativo")
-    } 
+        alert("Não pode ter número negativo")
+    }
     else {
         divResultado.innerHTML = `<h3>Você vai alcançar R$ ${formatarNumero(dinheiroAlmejado)} em ${tempoNecessario} mesess<h3> `
     }

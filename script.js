@@ -127,10 +127,17 @@ function atualizarSaldo() {
         }
     }
     const saldoTotal = saldoReceitas - saldoDespesas + poupanca;
-    const saldoCaixa = saldoReceitas - saldoDespesas;
-    document.getElementById('saldoTotal').textContent = `${formatarNumero(saldoTotal)}`;
-    document.getElementById('saldoCaixa').textContent = `${formatarNumero(saldoCaixa)}`;
-    document.getElementById('poupanca').textContent = `${formatarNumero(poupanca)}`;
+    const saldoCaixa = saldoReceitas - saldoDespesas
+
+    if (saldoCensurado) {
+        document.getElementById('saldoTotal').textContent = "****"
+        document.getElementById('saldoCaixa').textContent = "****"
+        document.getElementById('poupanca').textContent = "****"
+    } else {
+        document.getElementById('saldoTotal').textContent = formatarNumero(saldoTotal)
+        document.getElementById('saldoCaixa').textContent = formatarNumero(saldoCaixa)
+        document.getElementById('poupanca').textContent = formatarNumero(poupanca)
+    }
 }
 
 function formatarNumero(numero) {
@@ -138,19 +145,48 @@ function formatarNumero(numero) {
 }
 
 function atualizarHistorico() {
-    const historicoElemento = document.getElementById('historico');
-    historicoElemento.innerHTML = '';
+    const historicoElemento = document.getElementById('historico')
+    historicoElemento.innerHTML = '' // Limpar o histórico existente
+
     transacoes.forEach(transacao => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('list-group-item', 'transacao');
-        let descricao = transacao.descricao;
-        if (transacao.tipo === 'adicionarPoupanca') {
-            descricao = 'Adicionado à poupança';
+        const listItem = document.createElement('li')
+        listItem.classList.add('list-group-item', 'transacao')
+
+        // Criar e adicionar o título baseado no tipo de transação
+        const titulo = document.createElement('strong')
+        titulo.style.fontSize = '1.1rem'
+        if (transacao.tipo === 'despesa') {
+            titulo.textContent = 'Despesa registrada'
+        } else if (transacao.tipo === 'receita') {
+            titulo.textContent = 'Entrada registrada'
+        } else if (transacao.tipo === 'adicionarPoupanca') {
+            titulo.textContent = 'Adicionado à poupança'
         } else if (transacao.tipo === 'retirarPoupanca') {
-            descricao = 'Retirado da poupança';
+            titulo.textContent = 'Retirado da poupança'
         }
-        listItem.textContent = `${descricao}: ${formatarNumero(transacao.valor)}`;
-        historicoElemento.appendChild(listItem);
+        listItem.appendChild(titulo);
+
+        // Se a transação for uma despesa ou receita, incluir descrição
+        const descricao = document.createElement('div')
+        descricao.style.fontSize = '1.08rem'
+        if (transacao.tipo === 'despesa' || transacao.tipo === 'receita') {
+            descricao.textContent = transacao.descricao
+            listItem.appendChild(descricao)
+        }
+
+// Incluir o valor baseado no tipo de transação
+if (transacao.tipo === 'despesa' || transacao.tipo === 'retirarPoupanca') {
+    const valor = document.createElement('div')
+    // Multiplica o valor por -1 antes de formatá-lo
+    valor.textContent = '- ' + formatarNumero(transacao.valor)
+    listItem.appendChild(valor)
+    historicoElemento.appendChild(listItem)
+} else {
+    const valor = document.createElement('div')
+    valor.textContent = '+ ' + formatarNumero(transacao.valor)
+    listItem.appendChild(valor)
+    historicoElemento.appendChild(listItem)
+}
     });
 }
 
@@ -202,7 +238,7 @@ function atualizarGrafico() {
     }
 
 }
-
+let saldoCensurado = false
 let iSaldoTotal = 0;
 const saldoTotalElemento = document.getElementById('saldoTotal');
 const saldoCaixaElemento = document.getElementById('saldoCaixa');
@@ -210,6 +246,7 @@ const poupancaElemento = document.getElementById('poupanca');
 
 function esconderDinheiroTotal() {
     imgBlind = document.getElementById('imgBlind')
+    saldoCensurado = !saldoCensurado
     if (iSaldoTotal % 2 === 0) {
         saldoTotalElemento.textContent = "****";
         saldoCaixaElemento.textContent = "****";

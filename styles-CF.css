@@ -179,39 +179,32 @@ header nav a {
 }
 
 .media2 {
+  height: 60vh;
+  width: 35vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center !important;
-}
-
-.media2 h2 {
-  margin-bottom: 3vh;
-}
-
-#historico,
-.grafico {
-  width: 30vw;
-  height: 60vh;
+  margin: 0 auto;
 }
 
 ul {
+  max-height: 28vw;
   overflow-y: auto;
 }
-
 ul li {
-  background: rgb(207, 207, 207) !important;
+  background-color: rgb(0, 31, 94) !important;
   border: none;
   font-size: 16px;
   height: auto;
   margin: 0;
   outline: 0;
   padding: 12px;
-  width: 90%;
-  background-color: #e8eeef;
-  color: #333 !important;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-  margin: 5px auto;
+  margin: 5px;
+}
+
+.media2-content {
+  margin: 0 auto;
+  width: 28vw !important;
 }
 
 @media (orientation: portrait) {
@@ -343,7 +336,13 @@ ul li {
   * {
     font-size: 1rem !important;
   }
+  body {
+    width: 100vw !important;
+  }
 
+  header {
+    width: 100vw;
+  }
   .container-content {
     display: flex;
     flex-direction: column;
@@ -376,6 +375,5 @@ ul li {
     flex-direction: column;
     justify-content: center;
     height: 45vh;
-    width: 80vw;
   }
 }

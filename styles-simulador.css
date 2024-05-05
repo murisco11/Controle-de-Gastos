@@ -134,7 +134,7 @@ a img {
 .inputs:hover {
     background-color: #ff168e;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
-    transform: scale(1.035);
+    transform: scale(1.025);
     transition: 300ms;
     
 }
@@ -159,10 +159,11 @@ a img {
 
 #buttonConfirm:hover {
     background-color: #ff168e;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.219), -3px -3px 10px rgba(0, 0, 0, 0.219);
-    transform: scale(1.035);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
+    transform: scale(1.05) !important;
     transition: transform 0.3s ease;
-}
+  }
+
 
 #buttonConfirm.show {
     opacity: 1;

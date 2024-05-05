@@ -111,7 +111,7 @@ header nav a {
   text-align: center;
   display: block;
   opacity: 0;
-  transform: translateX(3000px); 
+  transform: translateX(3000px);
   transition: opacity 1s ease, transform 1s ease;
 }
 
@@ -159,7 +159,7 @@ header nav a {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
   transform: scale(1.03);
   transition: transform 0.3s ease;
-  
+
 }
 
 .saldo {

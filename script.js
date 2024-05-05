@@ -178,6 +178,13 @@ function atualizarGrafico() {
                     x: {
                         beginAtZero: true
                     }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
                 }
             }
         });
@@ -245,12 +252,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Adiciona a classe 'show' para exibir os elementos gradualmente
 document.addEventListener("DOMContentLoaded", function () {
     const divisions = document.querySelectorAll(".division");
     const buttons = document.querySelectorAll(".button");
-  
+
     divisions.forEach((division) => division.classList.add("show"));
     buttons.forEach((button) => button.classList.add("show"));
-  });
-  
+});

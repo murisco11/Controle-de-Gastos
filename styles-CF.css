@@ -66,6 +66,14 @@ header nav a {
   flex-direction: column;
   justify-content: space-evenly;
   background-color: rgba(0, 42, 125, 0.959);
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 1.2s ease, transform 1s ease;
+}
+
+.division.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .division .inputs {
@@ -102,12 +110,20 @@ header nav a {
   color: white;
   text-align: center;
   display: block;
+  opacity: 0;
+  transform: translateX(3000px); 
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.division .button.show {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .division .button:hover {
   background-color: #ff168e;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
-  transform: scale(1.03);
+  transform: scale(1.05);
   transition: transform 0.3s ease;
 }
 
@@ -124,8 +140,6 @@ header nav a {
 .div-saldos h3 {
   text-align: center;
 }
-
-
 
 .btnBlind {
   border: 0;
@@ -145,10 +159,23 @@ header nav a {
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.562), -3px -3px 10px rgba(0, 0, 0, 0.219);
   transform: scale(1.03);
   transition: transform 0.3s ease;
+  
 }
 
 .saldo {
   transform: translateY(-10px);
+}
+
+.div-saldos {
+  transition: transform 0.5s ease-in-out;
+}
+
+.salto {
+  transform: translateY(-10px);
+}
+
+.historico-transações ul li.transacao {
+  border-radius: 20px;
 }
 
 .media2 {
@@ -185,7 +212,6 @@ ul li {
   color: #333 !important;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin: 5px auto;
-
 }
 
 @media (orientation: portrait) {

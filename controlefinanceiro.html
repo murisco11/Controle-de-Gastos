@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2N Finnanças</title>
+  <title>2N Finanças</title>
   <link rel="stylesheet" href="styles-CF.css" />
   <link rel="stylesheet" href="estilo/BootStrap/bootstrap.min.css" />
   <link rel="icon" href="estilo/Assets/favicon.png" type="image/x-icon" />
@@ -15,7 +15,7 @@
 </head>
 
 <body>
-  <header> <!--Topo da página, com a âncora para voltar para a página inicial-->
+  <header>
     <nav>
       <div>
         <a style="font-weight: 800; font-size: 1.2em;" href="index.html">
@@ -31,11 +31,9 @@
     </nav>
   </header>
 
-  <div class="container-content"> <!--CONTAINER sem HISTÓRICO-->
-    <div class="addTransacao division"> <!--Div da adição de transição-->
-      <h2>
-        Adicione sua transação
-      </h2>
+  <div class="container-content">
+    <div class="addTransacao division">
+      <h2>Adicione sua transação</h2>
       <div>
         <label for="Tipo de Transção">Tipo de transação:</label>
         <select id="tipo" class="inputs" onchange="alterarTipoTransacao()">
@@ -47,54 +45,48 @@
       </div>
       <div>
         <label for="valor">Valor:</label>
-        <input type="text" name="Valor_transacao" id="valor" class="inputs"
-          placeholder="Adicione o valor de sua transação.">
+        <input type="text" name="Valor_transacao" id="valor" class="inputs" placeholder="Adicione o valor de sua transação.">
         <small id="valorHelp" class="form-text text-danger"></small>
       </div>
       <div class="descricaoDiv">
         <label for="descricao">Descrição:</label> <br>
-        <input type="text" name="Descricao_valor" id="descricao" class="inputs"
-          placeholder="Adicione um lembrete sobre sua transação.">
+        <input type="text" name="Descricao_valor" id="descricao" class="inputs" placeholder="Adicione um lembrete sobre sua transação.">
         <small id="descricaoHelp" class="form-text text-danger"></small>
       </div>
-      <button onclick="adicionarTransacao()" class="button">
-        Adicionar
-      </button>
-    </div> <!--Fim da Div da adição de transição-->
+      <button onclick="adicionarTransacao()" class="button">Adicionar</button>
+    </div>
 
-    <div class="container-saldos division"> <!--Div Container Saldos -->
-      <button onclick="esconderDinheiroTotal()" class="btnBlind"><img src="estilo/Icones BootStrap/eye.svg"
-          id="imgBlind" class="imgBlind" alt="" srcset=""> </button>
-      <div class="div-saldos"> <!--Div do Saldo total-->
+    <div class="container-saldos division">
+      <button onclick="esconderDinheiroTotal()" class="btnBlind">
+        <img src="estilo/Icones BootStrap/eye.svg" id="imgBlind" class="imgBlind" alt="" srcset="">
+      </button>
+      <div class="div-saldos">
         <h2>
           <img src="estilo/Icones BootStrap/bank.svg" alt="Banco" width="30" height="25" />
           Saldo total:
         </h2>
         <h3 id="saldoTotal">R$ 0,00</h3>
       </div>
-      <div class="div-saldos"> <!--Div do Saldo em conta-->
+      <div class="div-saldos">
         <h2>
-          <img src="estilo/Icones BootStrap/wallet2.svg" alt="carteira" width="30" height="26" />
+          <img src="estilo/Icones BootStrap/wallet2.svg" alt="carteira" width="30" height="25" />
           Saldo na conta:
         </h2>
         <h3 id="saldoCaixa">R$ 0,00</h3>
       </div>
-      <div class="div-saldos d-flex flex-column align-items-center"> <!--Div - Poupança-->
+      <div class="div-saldos d-flex flex-column align-items-center">
         <h2>
-          <img src="estilo/Icones BootStrap/piggy-bank.svg" alt="porquinho" width="30" height="34" />
+          <img src="estilo/Icones BootStrap/piggy-bank.svg" alt="porquinho" width="30" height="35" />
           Poupança:
         </h2>
         <h3 id="poupanca">R$ 0,00</h3>
         <small id="poupancaHelp" class="form-text text-danger"></small>
       </div>
-
-    </div> <!--Div Container Saldos -->
-  </div>
-
+    </div>
   </div>
 
   <div class="container-content">
-    <div class="division"> <!--Div do histórico de transações-->
+    <div class="division">
       <div class="media2">
         <div class="historico-transações">
           <h2>
@@ -105,7 +97,7 @@
         </div>
       </div>
     </div>
-    <div class="division"> <!--Div do gráfico-->
+    <div class="division">
       <div class="media2">
         <div class="graficoGastos">
           <h2>
@@ -118,9 +110,8 @@
         </div>
       </div>
     </div>
-  </div> ////////////////
+  </div>
 
-  <!--Script e Inclusão do Chart.js pro gráfico-->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
   <script src="script.js"></script>
 </body>

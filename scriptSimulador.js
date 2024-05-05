@@ -1,3 +1,18 @@
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const division1s = document.querySelectorAll(".division1");
+    const buttonConfirm = document.getElementById("buttonConfirm");
+
+    setTimeout(function() {
+        division1s.forEach(function(division1) {
+            division1.classList.add("show");
+        });
+        buttonConfirm.classList.add("show");
+    }, 1000);
+});
+
+
 function calcularTempo(dinheiroInicial, porcentagem, dinheiroAlmejado, dinheiroMes) {
     const r = porcentagem / 100;
     let t = 0;

@@ -25,15 +25,26 @@
     </div>
   </div>
   <footer>
-    <span>© 2N Finanças. Todos os direitos reservados. Feito por Brunno Oliveira @oliv.brunno e Maurício Pires
-      @murisxco</span>
+    <span>© 2N Finanças. Todos os direitos reservados. Feito por Brunno Oliveira <a href="https://www.instagram.com/oliv.brunno/" style="color: white;">@oliv.brunno</a> e Maurício Pires <a href="https://www.instagram.com/murisxco/" style="color: white;">@murisxco</a></span>
   </footer>
   <script>
+
     var typed = new Typed('#efeito_TypeWritter', {
       strings: ['2N Finanças!'],
       typeSpeed: 95,
       loop: true
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var card = document.querySelector(".card");
+      var button = document.querySelector(".button");
+
+      setTimeout(function () {
+        card.classList.add("show");
+        button.classList.add("show");
+      }, 100);
+    });
+
   </script>
 </body>
 

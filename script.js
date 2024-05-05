@@ -73,6 +73,18 @@ function adicionarTransacao() {
         return;
     }
 
+    // Verificando se a despesa excede o saldo disponível
+    if (tipo === 'despesa') {
+        const saldoReceitas = transacoes.filter(transacao => transacao.tipo === 'receita').reduce((acc, transacao) => acc + transacao.valor, 0);
+        const saldoDespesas = transacoes.filter(transacao => transacao.tipo === 'despesa').reduce((acc, transacao) => acc + transacao.valor, 0);
+        const saldoTotal = saldoReceitas - saldoDespesas + poupanca;
+
+        if (valor > saldoTotal) {
+            document.getElementById('valorHelp').textContent = 'A despesa excede o saldo disponível.';
+            return;
+        }
+    }
+
     const transacao = {
         descricao: descricao.substring(0, 30),
         valor: valor,

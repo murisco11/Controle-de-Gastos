@@ -146,13 +146,11 @@ function formatarNumero(numero) {
 
 function atualizarHistorico() {
     const historicoElemento = document.getElementById('historico')
-    historicoElemento.innerHTML = '' // Limpar o histórico existente
+    historicoElemento.innerHTML = ''
 
     transacoes.forEach(transacao => {
         const listItem = document.createElement('li')
         listItem.classList.add('list-group-item', 'transacao')
-
-        // Criar e adicionar o título baseado no tipo de transação
         const titulo = document.createElement('strong')
         titulo.style.fontSize = '1.1rem'
         if (transacao.tipo === 'despesa') {
@@ -166,7 +164,7 @@ function atualizarHistorico() {
         }
         listItem.appendChild(titulo);
 
-        // Se a transação for uma despesa ou receita, incluir descrição
+
         const descricao = document.createElement('div')
         descricao.style.fontSize = '1.08rem'
         if (transacao.tipo === 'despesa' || transacao.tipo === 'receita') {
@@ -174,24 +172,23 @@ function atualizarHistorico() {
             listItem.appendChild(descricao)
         }
 
-// Incluir o valor baseado no tipo de transação
-if (transacao.tipo === 'despesa' || transacao.tipo === 'retirarPoupanca') {
-    const valor = document.createElement('div')
-    // Multiplica o valor por -1 antes de formatá-lo
-    valor.textContent = '- ' + formatarNumero(transacao.valor)
-    listItem.appendChild(valor)
-    historicoElemento.appendChild(listItem)
-} else {
-    const valor = document.createElement('div')
-    valor.textContent = '+ ' + formatarNumero(transacao.valor)
-    listItem.appendChild(valor)
-    historicoElemento.appendChild(listItem)
-}
+
+        if (transacao.tipo === 'despesa' || transacao.tipo === 'retirarPoupanca') {
+            const valor = document.createElement('div')
+
+            valor.textContent = '- ' + formatarNumero(transacao.valor)
+            listItem.appendChild(valor)
+            historicoElemento.appendChild(listItem)
+        } else {
+            const valor = document.createElement('div')
+            valor.textContent = '+ ' + formatarNumero(transacao.valor)
+            listItem.appendChild(valor)
+            historicoElemento.appendChild(listItem)
+        }
     });
 }
 
 function atualizarGrafico() {
-
     const ctx = document.getElementById('graficoGastos').getContext('2d');
 
     const entradas = transacoes.filter(transacao => transacao.tipo === 'receita');
@@ -217,17 +214,20 @@ function atualizarGrafico() {
                     label: 'Valor',
                     data: data,
                     backgroundColor: ['#76d341', '#f03d3d', '#418cd3'],
-                    borderRadius: 2
+                    borderRadius: 2,
+                    borderWidth: 0
                 }]
             },
             options: {
                 scales: {
                     x: {
+                        display: false,
                         beginAtZero: true
                     }
                 },
                 plugins: {
                     legend: {
+                        display: false,
                         labels: {
                             color: 'white'
                         }

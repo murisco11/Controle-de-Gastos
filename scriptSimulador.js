@@ -56,10 +56,33 @@ function formatarTempo(tempoNecessario, dinheiroAlmejado) {
     const meses = tempoNecessario % 12;
     const anos = Math.floor(tempoNecessario / 12);
     if (meses === 0) {
-        return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} anos`;
+        if (anos === 1 ) {
+            return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} ano`;
+        } else {
+            return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} anos`;
+        }
     } else if (anos === 0) {
-        return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${meses} meses`;
+        if (meses === 1) {
+            return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${meses} mês`;
+        } else {
+            return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${meses} meses`;
+        }
     } else {
-        return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} anos e ${meses} meses`;
+        if (anos === 1){
+            if (meses === 1) {
+                return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} ano e ${meses} mês`;
+            } else {
+                return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} ano e ${meses} meses`;
+            }
+        }
+        else {
+            if (meses === 1) {
+                return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} anos e ${meses} mês`;
+            } else {
+                return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} anos e ${meses} meses`;
+            }
+        }
+        }
+
     }
-}
+

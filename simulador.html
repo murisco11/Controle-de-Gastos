@@ -12,49 +12,52 @@
     <header>
         <nav>
             <div>
-                <a style="font-weight: 800; font-size: 1.2em; color: rgb(0, 0, 0);" href="index.html">
-                    <img src="estilo/Assets/arrow.png" alt="calculadora" width="30" height="25" class="mr-2" />
-                    <p>Página inicial</p>
-                </a>
-            </div>
+                <a style="font-weight: 800; font-size: 1.2em;" href="index.html">
+                  <img src="estilo/Assets/arrow.png" alt="calculadora" width="30" height="25" />
+                  Página inicial</a>
+              </div>
         </nav>
-
     </header>
     <div class="container">
         <form>
             <h2>Simule o seu dinheiro do futuro!</h2>
             <div class="container-selinputs">
-
-
-                <div class="division1">
+                <div class="division">
                     <div class="selInputs">
-                        <label for="dinheiroInicial">Dinheiro inicial:</label> <input type="number" placeholder="Adicione o dinheiro inicial" id="dinheiroInicial"
+                        <label for="dinheiroInicial">Dinheiro inicial:</label>
+                        <input type="number" placeholder="Dinheiro inicial" id="dinheiroInicial"
                             name="dinheiroInicial" class="inputs">
                     </div>
                     <div class="selInputs">
-                        <label for="dinheiroInicial">Dinheiro almejado:</label> <input type="number"
-                            id="dinheiroAlmejado" placeholder="Adicione o dinheiro almejado" name="dinheiroAlmejado" class="inputs">
+                        <label for="dinheiroInicial">Dinheiro almejado:</label>
+                        <input type="number" id="dinheiroAlmejado" placeholder="Dinheiro almejado"
+                            name="dinheiroAlmejado" class="inputs">
                     </div>
                 </div>
-                <div class="division1">
+                <div class="division">
                     <div class="selInputs">
-                        <label for="dinheiroMes">Dinheiro investido por mês:</label> <input type="number"
-                            id="dinheiroMes" placeholder="Adicione o dinheiro adicionado por mês" name="dinheiroMes" class="inputs">
+                        <label for="dinheiroMes">Dinheiro investido por mês:</label>
+                        <input type="number" id="dinheiroMes" placeholder="Dinheiro adicionado por mês"
+                            name="dinheiroMes" class="inputs">
                     </div>
                     <div class="selInputs">
-                        <label for="porcentagem">Porcentagem:</label> <input type="number" id="porcentagem"
-                            name="porcentagem" placeholder="Adicione a porcentagem anual do investimento" class="inputs">
+                        <label for="porcentagem">Porcentagem:</label>
+                        <input type="number" id="porcentagem" name="porcentagem"
+                            placeholder="Porcentagem anual" class="inputs">
                     </div>
                 </div>
             </div>
 
-            <button id="buttonConfirm">Simular</button>
+            <div class="container2">
+                <button id="buttonConfirm">Simular</button>
+
         </form>
         <div id="resultado">
         </div>
+        </div>
     </div>
-
-    <script src="scriptSimulador.js"></script>
 </body>
+
+<script src="scriptSimulador.js"></script>
 
 </html>

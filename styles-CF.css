@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   color: white !important;
+  font-size: 1rem;
 }
 
 /* Estilos gerais para o corpo da página */
@@ -13,7 +14,7 @@ body {
   background-size: cover;
   background-repeat: repeat;
   background-position: center center;
-  height: 100vh;
+  height: 100vh !important;
   color: #333;
   line-height: 1.6;
   padding-top: 60px;
@@ -39,6 +40,11 @@ nav {
 
 header nav a {
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+header nav a img {
+  margin-right: 5px; margin-left: 5px;/* Adiciona um espaço entre a imagem e o texto */
 }
 
 .arrowRight {
@@ -152,6 +158,8 @@ header nav a {
   color: white;
   text-align: center;
   display: block;
+  width: 40vw;
+  margin: 0 auto
 }
 
 .btnBlind:hover {
@@ -183,11 +191,11 @@ header nav a {
   width: 35vw;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 6vh auto !important;
 }
 
 ul {
-  max-height: 28vw;
+  max-height: 58vh;
   overflow-y: auto;
 }
 ul li {
@@ -203,152 +211,109 @@ ul li {
 }
 
 .media2-content {
-  margin: 0 auto;
   width: 28vw !important;
+  height: auto !important;
+  margin: 4vh auto
 }
 
-@media (orientation: portrait) {
+@media (max-width: 1024px) {
   * {
-    font-size: 1.6rem !important;
+    font-size: 1.2rem;
   }
-
   .container-content {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
-
   .division {
-    width: 80vw;
+    width: 45vww;
     text-align: center;
     display: flex;
   }
 
   .division .button {
-    padding: 20px 60px 20px 60px;
-  }
-
-  .div-saldos {
-    width: 50vw;
-    height: 15vh;
-    margin: 2vh auto;
-  }
-
-  .btnBlind {
-    margin: 0 auto;
-    padding: 15px 25vw;
-  }
-
-  #historico,
-  .grafico {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 45vh;
-    width: 80vw;
-  }
-}
-
-@media (max-width: 800px) {
-  * {
-    font-size: 1.25rem !important;
-  }
-
-  .container-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .division {
-    width: 80vw;
-    text-align: center;
-    display: flex;
-  }
-
-  .division .button {
-    padding: 20px 60px 20px 60px;
-  }
-
-  .div-saldos {
-    width: 50vw;
-    height: 15vh;
-    margin: 2vh auto;
-  }
-
-  .btnBlind {
-    margin: 0 auto;
-    padding: 15px 25vw;
-  }
-
-  #historico,
-  .grafico {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 45vh;
-    width: 80vw;
-  }
-}
-
-@media (max-width: 600px) {
-  * {
-    font-size: 1.2rem !important;
-  }
-
-  .container-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .division {
-    width: 80vw;
-    text-align: center;
-    display: flex;
-  }
-
-  .division .button {
-    padding: 20px 60px 20px 60px;
+    padding: 20px 80px;
   }
 
   .div-saldos {
     width: 40vw;
-    height: 15vh;
+    height: 20vh;
     margin: 2vh auto;
   }
 
-  .btnBlind {
-    margin-bottom: 1vh;
+  .media2-content {
+    margin: 20% auto !important;
+    width: 35vw !important;
+    height: auto !important;
   }
 
-  #historico,
-  .grafico {
+  .media2 {
+    height: 60vh;
+    width: 35vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 45vh;
-    width: 80vw;
+    margin: 3vh auto;
+  }
+  ul {
+    max-height: 45vh;
+    overflow-y: auto;
   }
 }
+
+@media (max-width: 768px) {
+  * {
+    font-size: 1.1rem;
+  }
+  .container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .division {
+    width: 80vw;
+    text-align: center;
+    display: flex;
+  }
+
+  .division .button {
+    padding: 20px 80px;
+  }
+
+  .div-saldos {
+    width: 42vw;
+    height: 20vh;
+    margin: 2vh auto;
+  }
+
+  .media2-content {
+    margin: 20% auto !important;
+    width: 33vw !important;
+    height: auto !important;
+  }
+
+  .media2 {
+    height: 60vh;
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    margin: 3vh auto;
+  }
+  ul {
+    max-height: 45vh;
+    overflow-y: auto;
+  }
+}
+
 
 @media (max-width: 400px) {
   * {
-    font-size: 1rem !important;
-  }
-  body {
-    width: 100vw !important;
-  }
-
-  header {
-    width: 100vw;
+    font-size: 13px;
   }
   .container-content {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
   .division {
     width: 80vw;
     text-align: center;
@@ -356,24 +321,31 @@ ul li {
   }
 
   .division .button {
-    padding: 20px 60px 20px 60px;
+    padding: 20px 80px;
   }
 
   .div-saldos {
-    width: 40vw;
-    height: 15vh;
+    width: 42vw;
+    height: 20vh;
     margin: 2vh auto;
   }
 
-  .btnBlind {
-    margin-bottom: 1vh;
+  .media2-content {
+    margin: 20% auto !important;
+    width: 38vw !important;
+    height: auto !important;
   }
 
-  #historico,
-  .grafico {
+  .media2 {
+    height: 60vh;
+    width: 35vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    height: 45vh;
+    margin: 3vh auto;
+  }
+  ul {
+    max-height: 45vh;
+    overflow-y: auto;
   }
 }
+

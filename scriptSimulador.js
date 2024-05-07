@@ -51,6 +51,7 @@ function clicouConfirm(evento) {
         resultadoHelp.textContent = "Não pode ter número negativo";
     } else {
         resultado.textContent = formatarTempo(tempoNecessario, dinheiroAlmejado);
+        resultadoHelp.textContent = "";
     }
 }
 

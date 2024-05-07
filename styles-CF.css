@@ -1,4 +1,4 @@
-/* Reset de margin e padding */
+   /* Reset de margin e padding */
 * {
   margin: 0;
   padding: 0;
@@ -369,5 +369,6 @@ ul li {
   ul {
     max-height: 35vh;
     overflow-y: auto;
+    text-align: initial;
   }
 }

@@ -155,13 +155,13 @@ function atualizarHistorico() {
         const titulo = document.createElement('strong')
         titulo.style.fontSize = '1.1rem'
         if (transacao.tipo === 'despesa') {
-            titulo.textContent = 'Despesa registrada'
+            titulo.textContent = `Despesa registrada - ${formatarData(hoje)}`
         } else if (transacao.tipo === 'receita') {
-            titulo.textContent = 'Entrada registrada'
+            titulo.textContent = `Entrada registrada - ${formatarData(hoje)}` 
         } else if (transacao.tipo === 'adicionarPoupanca') {
-            titulo.textContent = 'Adicionado à poupança'
+            titulo.textContent = `Adicionado à poupança - ${formatarData(hoje)}`
         } else if (transacao.tipo === 'retirarPoupanca') {
-            titulo.textContent = 'Retirado da poupança'
+            titulo.textContent = `Retirado da poupança - ${formatarData(hoje)}`
         }
         listItem.appendChild(titulo);
 
@@ -308,3 +308,16 @@ document.addEventListener("DOMContentLoaded", function () {
     divisions.forEach((division) => division.classList.add("show"));
     buttons.forEach((button) => button.classList.add("show"));
 });
+
+
+function formatarData(data) {
+    let dia = data.getDate()
+    let mes = data.getMonth() + 1
+    let ano = data.getFullYear()
+    dia = dia < 10 ? '0' + dia : dia
+    mes = mes < 10 ? '0' + mes : mes
+
+    return `${dia}/${mes}/${ano}`
+}
+const hoje = new Date()
+formatarData(hoje)

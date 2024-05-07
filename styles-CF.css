@@ -1,4 +1,4 @@
-   /* Reset de margin e padding */
+/* Reset de margin e padding */
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +47,6 @@ header nav a {
 header nav a img {
   margin-right: 1vw;
   margin-left: 1vw;
-  /* Adiciona um espaço entre a imagem e o texto */
 }
 
 

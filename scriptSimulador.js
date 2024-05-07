@@ -41,6 +41,7 @@ function clicouConfirm(evento) {
     const dinheiroMes = parseFloat(document.getElementById("dinheiroMes").value);
     const tempoNecessario = calcularTempo(dinheiroInicial, porcentagem, dinheiroAlmejado, dinheiroMes);
     const resultadoHelp = document.getElementById("resultadoHelp");
+    const resultado = document.getElementById("resultado");
 
     if (isNaN(dinheiroAlmejado) || isNaN(dinheiroInicial) || isNaN(dinheiroMes) || isNaN(porcentagem)) {
         resultadoHelp.textContent = "Preencha todos os campos!";
@@ -49,7 +50,7 @@ function clicouConfirm(evento) {
     } else if (dinheiroInicial < 0 || dinheiroAlmejado < 0 || porcentagem < 0 || dinheiroMes < 0) {
         resultadoHelp.textContent = "Não pode ter número negativo";
     } else {
-        resultadoHelp.textContent = formatarTempo(tempoNecessario, dinheiroAlmejado);
+        resultado.textContent = formatarTempo(tempoNecessario, dinheiroAlmejado);
     }
 }
 

@@ -40,17 +40,19 @@ function clicouConfirm(evento) {
     const dinheiroAlmejado = parseFloat(document.getElementById('dinheiroAlmejado').value);
     const dinheiroMes = parseFloat(document.getElementById("dinheiroMes").value);
     const tempoNecessario = calcularTempo(dinheiroInicial, porcentagem, dinheiroAlmejado, dinheiroMes);
+    const resultadoHelp = document.getElementById("resultadoHelp");
+
     if (isNaN(dinheiroAlmejado) || isNaN(dinheiroInicial) || isNaN(dinheiroMes) || isNaN(porcentagem)) {
-        alert("Preencha todos os campos!");
+        resultadoHelp.textContent = "Preencha todos os campos!";
     } else if (dinheiroInicial >= dinheiroAlmejado) {
-        alert("O dinheiro inicial não pode ser maior que o dinheiro almejado!");
+        resultadoHelp.textContent = "O dinheiro inicial não pode ser maior que o dinheiro almejado!";
     } else if (dinheiroInicial < 0 || dinheiroAlmejado < 0 || porcentagem < 0 || dinheiroMes < 0) {
-        alert("Não pode ter número negativo");
+        resultadoHelp.textContent = "Não pode ter número negativo";
     } else {
-        divResultado.innerHTML = formatarTempo(tempoNecessario, dinheiroAlmejado);
+        resultadoHelp.textContent = formatarTempo(tempoNecessario, dinheiroAlmejado);
     }
-    return dinheiroAlmejado;
 }
+
 
 function formatarTempo(tempoNecessario, dinheiroAlmejado) {
     const meses = tempoNecessario % 12;

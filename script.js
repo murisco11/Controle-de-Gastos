@@ -19,7 +19,8 @@ function alterarTipoTransacao() {
 
 function adicionarTransacao() {
     const descricao = document.getElementById('descricao').value.trim();
-    const valor = parseFloat(document.getElementById('valor').value);
+    const valorInput = document.getElementById('valor').value;
+    const valor = parseFloat(valorInput.replace(',', '.')); 
     const tipo = document.getElementById('tipo').value;
 
     document.getElementById('descricaoHelp').textContent = '';

@@ -321,3 +321,22 @@ function formatarData(data) {
 }
 const hoje = new Date()
 formatarData(hoje)
+
+function checkNumberInput(input) {
+    const valor = input.value;
+    let contemApenasNumeros = true;
+  
+    for (let i = 0; i < valor.length; i++) {
+      const char = valor.charAt(i);
+      if (!(char >= '0' && char <= '9') && char !== '.' && char !== ',') {
+        contemApenasNumeros = false;
+        break;
+      }
+    }
+  
+    if (!contemApenasNumeros) {
+      document.getElementById("valorHelp").textContent = "Só são aceitos números";
+    } else {
+      document.getElementById("valorHelp").textContent = "";
+    }
+  }

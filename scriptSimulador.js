@@ -89,3 +89,14 @@ function formatarTempo(tempoNecessario, dinheiroAlmejado) {
 
     }
 
+    document.addEventListener("DOMContentLoaded", function() {
+        const divisions = document.querySelectorAll(".division");
+    
+        divisions.forEach(function(division) {
+            division.classList.add("show");
+        });
+    
+        const buttonConfirm = document.getElementById("buttonConfirm");
+        buttonConfirm.classList.add("show");
+    });
+    

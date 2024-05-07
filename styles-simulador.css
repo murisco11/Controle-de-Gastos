@@ -75,6 +75,15 @@
     margin: 0 1vh;
     border: none;
     border-radius: 20px;
+    transition: opacity 1.2s ease, transform 1s ease;
+    opacity: 0;
+    transform: translateY(-500px);
+}
+
+
+.division.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .selInputs {
@@ -129,19 +138,19 @@ input[type="number"]::-webkit-outer-spin-button {
     border-radius: 20px;
     padding: 12px 120px;
     margin: 10px auto;
+    opacity: 0;
+    transform: translateX(1000px);
+    transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
     cursor: pointer;
     background-color: #FF2A97;
-    transition: background-color 0.3s, box-shadow 0.3s;
     text-decoration: none;
     color: white;
     text-align: center;
     display: block;
-    opacity: 0;
-    transform: translateX(3000px);
-    transition: opacity 1s ease, transform 1s ease;
+    
   }
   
-  #buttonConfirm {
+  #buttonConfirm.show {
 
     opacity: 1;
     transform: translateX(0);

@@ -79,7 +79,7 @@ function adicionarTransacao() {
         const saldoDespesas = transacoes.filter(transacao => transacao.tipo === 'despesa').reduce((acc, transacao) => acc + transacao.valor, 0);
         const saldoTotal = saldoReceitas - saldoDespesas + poupanca;
 
-        if (valor > saldoTotal) {
+        if (valor > saldoCaixa) {
             document.getElementById('valorHelp').textContent = 'A despesa excede o saldo disponível.';
             return;
         }

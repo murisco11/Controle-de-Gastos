@@ -17,6 +17,15 @@ function alterarTipoTransacao() {
     }
 }
 
+function exibirMensagemTemporaria(mensagem, tempo) {
+    const confirmacaoHelp = document.getElementById("confirmacaoHelp");
+    confirmacaoHelp.textContent = mensagem;
+
+    setTimeout(function () {
+        confirmacaoHelp.textContent = '';
+    }, tempo);
+}
+
 function adicionarTransacao() {
     const descricao = document.getElementById('descricao').value.trim();
     const valorInput = document.getElementById('valor').value;
@@ -67,6 +76,9 @@ function adicionarTransacao() {
         atualizarGrafico();
         document.getElementById('descricao').value = '';
         document.getElementById('valor').value = '';
+        
+        exibirMensagemTemporaria("Sua transação foi adicionada", 5000);
+
         return;
     }
 
@@ -99,6 +111,8 @@ function adicionarTransacao() {
 
     document.getElementById('descricao').value = '';
     document.getElementById('valor').value = '';
+    
+    exibirMensagemTemporaria("Sua transação foi adicionada", 5000);
 }
 
 function adicionarPoupanca(valor) {
@@ -324,7 +338,7 @@ function formatarData(data) {
 const hoje = new Date()
 formatarData(hoje)
 
-function checkNumberInput(input) {
+function checarNumero(input) {
     const valor = input.value;
     let contemApenasNumeros = true;
 

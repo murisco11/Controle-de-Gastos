@@ -46,7 +46,7 @@
       <div>
         <label for="valor">Valor:</label>
         <input type="text" name="Valor_transacao" id="valor" class="inputs"
-          placeholder="Adicione o valor de sua transação." oninput="checkNumberInput(this)">
+          placeholder="Adicione o valor de sua transação." oninput="checarNumero(this)">
         <small id="valorHelp" class="form-text text-danger"></small>
         <small id="poupancaHelp" class="form-text text-danger"></small>
       </div>
@@ -55,6 +55,7 @@
         <input type="text" name="Descricao_valor" id="descricao" class="inputs"
           placeholder="Qual a origem dessa transação?">
         <small id="descricaoHelp" class="form-text text-danger"></small>
+        <small id="confirmacaoHelp" class="form-text"></small>
       </div>
       <button onclick="adicionarTransacao()" class="button">Adicionar</button>
     </div>

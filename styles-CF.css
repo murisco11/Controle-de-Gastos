@@ -116,17 +116,13 @@
      text-align: center;
      display: block;
      opacity: 0;
-     transform: translateX(1000px);
+     transform: translateX(200px);
      transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
    }
 
    .division .button.show {
      opacity: 1;
      transform: translateY(0);
-   }
-
-   .text-danger {
-     color: rgb(255, 0, 43) !important
    }
 
    .division .button:hover {
@@ -165,7 +161,7 @@
      width: 40vw;
      margin: 0 auto;
      opacity: 0;
-     transform: translateX(1000px);
+     transform: translateX(200px);
      transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
    }
 

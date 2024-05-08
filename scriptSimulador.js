@@ -1,11 +1,9 @@
-
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const division1s = document.querySelectorAll(".division1");
     const buttonConfirm = document.getElementById("buttonConfirm");
 
-    setTimeout(function() {
-        division1s.forEach(function(division1) {
+    setTimeout(function () {
+        division1s.forEach(function (division1) {
             division1.classList.add("show");
         });
         buttonConfirm.classList.add("show");
@@ -46,7 +44,7 @@ function clicouConfirm(evento) {
     if (isNaN(dinheiroAlmejado) || isNaN(dinheiroInicial) || isNaN(dinheiroMes) || isNaN(porcentagem)) {
         resultadoHelp.textContent = "Preencha todos os campos!";
     } else if (dinheiroInicial >= dinheiroAlmejado) {
-        resultadoHelp.textContent = "O dinheiro inicial não pode ser maior que o dinheiro almejado!";
+        resultadoHelp.textContent = "O dinheiro inicial precisa ser maior que o dinheiro almejado!";
     } else if (dinheiroInicial < 0 || dinheiroAlmejado < 0 || porcentagem < 0 || dinheiroMes < 0) {
         resultadoHelp.textContent = "Não pode ter número negativo";
     } else {
@@ -60,7 +58,7 @@ function formatarTempo(tempoNecessario, dinheiroAlmejado) {
     const meses = tempoNecessario % 12;
     const anos = Math.floor(tempoNecessario / 12);
     if (meses === 0) {
-        if (anos === 1 ) {
+        if (anos === 1) {
             return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} ano`;
         } else {
             return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} anos`;
@@ -72,7 +70,7 @@ function formatarTempo(tempoNecessario, dinheiroAlmejado) {
             return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${meses} meses`;
         }
     } else {
-        if (anos === 1){
+        if (anos === 1) {
             if (meses === 1) {
                 return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} ano e ${meses} mês`;
             } else {
@@ -86,18 +84,17 @@ function formatarTempo(tempoNecessario, dinheiroAlmejado) {
                 return `Você vai alcançar ${formatarNumero(dinheiroAlmejado)} em ${anos} anos e ${meses} meses`;
             }
         }
-        }
-
     }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        const divisions = document.querySelectorAll(".division");
-    
-        divisions.forEach(function(division) {
-            division.classList.add("show");
-        });
-    
-        const buttonConfirm = document.getElementById("buttonConfirm");
-        buttonConfirm.classList.add("show");
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const divisions = document.querySelectorAll(".division");
+
+    divisions.forEach(function (division) {
+        division.classList.add("show");
     });
-    
+
+    const buttonConfirm = document.getElementById("buttonConfirm");
+    buttonConfirm.classList.add("show");
+});

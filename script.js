@@ -20,7 +20,7 @@ function alterarTipoTransacao() {
 function adicionarTransacao() {
     const descricao = document.getElementById('descricao').value.trim();
     const valorInput = document.getElementById('valor').value;
-    const valor = parseFloat(valorInput.replace(',', '.')); 
+    const valor = parseFloat(valorInput.replace(',', '.'));
     const tipo = document.getElementById('tipo').value;
 
     document.getElementById('descricaoHelp').textContent = '';
@@ -157,7 +157,7 @@ function atualizarHistorico() {
         if (transacao.tipo === 'despesa') {
             titulo.textContent = `Despesa registrada - ${formatarData(hoje)}`
         } else if (transacao.tipo === 'receita') {
-            titulo.textContent = `Entrada registrada - ${formatarData(hoje)}` 
+            titulo.textContent = `Entrada registrada - ${formatarData(hoje)}`
         } else if (transacao.tipo === 'adicionarPoupanca') {
             titulo.textContent = `Adicionado à poupança - ${formatarData(hoje)}`
         } else if (transacao.tipo === 'retirarPoupanca') {
@@ -325,18 +325,18 @@ formatarData(hoje)
 function checkNumberInput(input) {
     const valor = input.value;
     let contemApenasNumeros = true;
-  
+
     for (let i = 0; i < valor.length; i++) {
-      const char = valor.charAt(i);
-      if (!(char >= '0' && char <= '9') && char !== '.' && char !== ',') {
-        contemApenasNumeros = false;
-        break;
-      }
+        const char = valor.charAt(i);
+        if (!(char >= '0' && char <= '9') && char !== '.' && char !== ',') {
+            contemApenasNumeros = false;
+            break;
+        }
     }
-  
+
     if (!contemApenasNumeros) {
-      document.getElementById("valorHelp").textContent = "Só são aceitos números";
+        document.getElementById("valorHelp").textContent = "Só são aceitos números";
     } else {
-      document.getElementById("valorHelp").textContent = "";
+        document.getElementById("valorHelp").textContent = "";
     }
-  }
+}

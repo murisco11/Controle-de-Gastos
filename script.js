@@ -160,47 +160,49 @@ function formatarNumero(numero) {
 }
 
 function atualizarHistorico() {
-    const historicoElemento = document.getElementById('historico')
-    historicoElemento.innerHTML = ''
+    const historicoElemento = document.getElementById('historico');
+    historicoElemento.innerHTML = '';
 
-    transacoes.forEach(transacao => {
-        const listItem = document.createElement('li')
-        listItem.classList.add('list-group-item', 'transacao')
-        const titulo = document.createElement('strong')
-        titulo.style.fontSize = '1.1rem'
+    for (let i = transacoes.length - 1; i >= 0; i--) {
+        const transacao = transacoes[i];
+        const listItem = document.createElement('li');
+        listItem.classList.add('list-group-item', 'transacao');
+
+        const titulo = document.createElement('strong');
+        titulo.style.fontSize = '1.1rem';
+
         if (transacao.tipo === 'despesa') {
-            titulo.textContent = `Despesa registrada - ${formatarData(hoje)}`
+            titulo.textContent = `Despesa registrada - ${formatarData(hoje)}`;
         } else if (transacao.tipo === 'receita') {
-            titulo.textContent = `Entrada registrada - ${formatarData(hoje)}`
+            titulo.textContent = `Entrada registrada - ${formatarData(hoje)}`;
         } else if (transacao.tipo === 'adicionarPoupanca') {
-            titulo.textContent = `Adicionado à poupança - ${formatarData(hoje)}`
+            titulo.textContent = `Adicionado à poupança - ${formatarData(hoje)}`;
         } else if (transacao.tipo === 'retirarPoupanca') {
-            titulo.textContent = `Retirado da poupança - ${formatarData(hoje)}`
+            titulo.textContent = `Retirado da poupança - ${formatarData(hoje)}`;
         }
+
         listItem.appendChild(titulo);
 
-
-        const descricao = document.createElement('div')
-        descricao.style.fontSize = '1.08rem'
+        const descricao = document.createElement('div');
+        descricao.style.fontSize = '1.08rem';
+        
         if (transacao.tipo === 'despesa' || transacao.tipo === 'receita') {
-            descricao.textContent = transacao.descricao
-            listItem.appendChild(descricao)
+            descricao.textContent = transacao.descricao;
+            listItem.appendChild(descricao);
         }
-
 
         if (transacao.tipo === 'despesa' || transacao.tipo === 'retirarPoupanca') {
-            const valor = document.createElement('div')
-
-            valor.textContent = '- ' + formatarNumero(transacao.valor)
-            listItem.appendChild(valor)
-            historicoElemento.appendChild(listItem)
+            const valor = document.createElement('div');
+            valor.textContent = '- ' + formatarNumero(transacao.valor);
+            listItem.appendChild(valor);
+            historicoElemento.appendChild(listItem);
         } else {
-            const valor = document.createElement('div')
-            valor.textContent = '+ ' + formatarNumero(transacao.valor)
-            listItem.appendChild(valor)
-            historicoElemento.appendChild(listItem)
+            const valor = document.createElement('div');
+            valor.textContent = '+ ' + formatarNumero(transacao.valor);
+            listItem.appendChild(valor);
+            historicoElemento.appendChild(listItem);
         }
-    });
+    }
 }
 
 function atualizarGrafico() {
@@ -356,3 +358,4 @@ function checarNumero(input) {
         document.getElementById("valorHelp").textContent = "";
     }
 }
+

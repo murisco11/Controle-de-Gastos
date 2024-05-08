@@ -142,14 +142,15 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 20px;
   padding: 12px 120px;
   margin: 10px auto;
-  opacity: 0;
-  transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
   cursor: pointer;
   background-color: #FF2A97;
   text-decoration: none;
   color: white;
   text-align: center;
   display: block;
+  opacity: 0;
+     transform: translateX(1000px);
+     transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
 
 }
 

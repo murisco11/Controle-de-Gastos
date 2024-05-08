@@ -111,17 +111,18 @@
      margin: 10px auto;
      cursor: pointer;
      background-color: #FF2A97;
-     transition: background-color 0.3s, box-shadow 0.3s;
      text-decoration: none;
      color: white;
      text-align: center;
      display: block;
      opacity: 0;
-     transition: opacity 1s ease, transform 1s ease;
+     transform: translateX(1000px);
+     transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
    }
 
    .division .button.show {
      opacity: 1;
+     transform: translateY(0);
    }
 
    .text-danger {
@@ -155,7 +156,6 @@
      padding: 1vh 1px 1vh 1px;
      cursor: pointer;
      background-color: #FF2A97;
-     transition: background-color 0.3s, box-shadow 0.3s;
      text-decoration: none;
      color: white;
      text-align: center;
@@ -163,7 +163,10 @@
      align-items: center;
      justify-content: center;
      width: 40vw;
-     margin: 0 auto
+     margin: 0 auto;
+     opacity: 0;
+     transform: translateX(1000px);
+     transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
    }
 
    .btnBlind:hover {
@@ -172,6 +175,11 @@
      transform: scale(1.03);
      transition: transform 0.3s ease;
 
+   }
+
+   .btnBlind.show {
+     opacity: 1;
+     transform: translateY(0);
    }
 
    .saldo {

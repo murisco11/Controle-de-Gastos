@@ -303,10 +303,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const divisions = document.querySelectorAll(".division");
-    const buttons = document.querySelectorAll(".button");
+    const button1 = document.querySelectorAll(".button");
+    const button2 = document.querySelectorAll(".btnBlind");
 
     divisions.forEach((division) => division.classList.add("show"));
-    buttons.forEach((button) => button.classList.add("show"));
+    button1.forEach((button1) => button1.classList.add("show"));
+    button2.forEach((button2) => button2.classList.add("show"));
 });
 
 

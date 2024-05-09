@@ -19,7 +19,10 @@ body {
 }
 
 header {
+  height: 8vh;
   position: fixed;
+  display: flex;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -30,20 +33,43 @@ header {
 }
 
 nav {
-  display: flex !important;
-  flex-direction: row;
-  justify-content: space-between;
+  display: flex;
+  justify-content: center !important;
+  width: 100%; 
 }
 
-header nav a {
-  text-decoration: none;
-  align-items: center;
+.divHeader1 {
+  flex: 1; 
+  text-align: left;
   display: flex;
 }
 
+.div2Header {
+  flex: 1; 
+  text-align: left;
+  display: flex;
+}
+
+.divHeader1 a {
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  justify-content: flex-start; 
+  width: 100%; 
+}
+
+.div2Header a {
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end; 
+  width: 100%; 
+}
+
+
 header nav a img {
-  margin-right: 1vw;
-  margin-left: 1vw;
+  margin-right: 2vw ;
+  margin-left: 2vw;
 }
 
    .container-content {
@@ -329,7 +355,7 @@ header nav a img {
 
    @media (max-width: 400px) {
      * {
-       font-size: 1rem;
+       font-size: 1rem !important;
      }
 
      .container-content {

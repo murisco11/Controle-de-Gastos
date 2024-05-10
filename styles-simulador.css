@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif !important;
   background-image: url("estilo/Assets/background.jpg");
   background-size: cover;
   background-repeat: repeat;
@@ -20,6 +20,9 @@ body {
 
 header {
   position: fixed;
+  height: 8vh;
+  display: flex !important;
+  align-items: center;
   top: 0;
   left: 0;
   width: 100%;
@@ -36,14 +39,14 @@ nav {
 }
 
 header nav a {
-  text-decoration: none;
+  text-decoration: none !important;
   align-items: center;
   display: flex;
 }
 
 header nav a img {
-  margin-right: 1vw;
-  margin-left: 1vw;
+  margin-right: 1.5vw ;
+  margin-left: 1.5vw;
 }
 
 .container {

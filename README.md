@@ -1,13 +1,13 @@
 # 2N Finanças
 
-O 2N Finanças é uma aplicação web simples para acompanhar suas transações financeiras, controlar seu saldo e visualizar gráficos de suas receitas, despesas e poupança.
+FlowFocus é uma ferramenta essencial para maximizar sua produtividade e foco durante qualquer momento de concentração, seja durante o estudo, trabalho ou projetos.
 
 ## Funcionalidades
 
-- Adição de transações relacionadas a entradas e saídas de seu dinheiro, para que você possa ter um controle financeiro acerca de seus gastos!
-- Adição e retirada de valores da "poupança", para que assim você tenha um controle, também, do seu dinheiro investido!
-- Visualização do histórico de transações
-- Exibição de gráfico de receitas, despesas e poupança
+- Cronômetro Inteligente: nosso cronômetro inteligente simplifica o método Flow Modoro. Inicie uma sessão de foco e o cronômetro acompanhará seu tempo de concentração. Quando sentir necessidade, pause e o tempo de pausa será automaticamente calculado com base no tempo de foco.
+- Relatório semanal: acompanhe seu progresso ao longo do tempo com nosso relatório semanal. Visualize o tempo total dedicado ao momento de foco, bem como o tempo total de descanso.
+- Lista de tarefas: mantenha-se organizado com nossa lista de tarefas integrada. Liste todas as suas tarefas pendentes em um só lugar e priorize suas atividades.
+- Lembretes e Notificações: não perca mais prazos importantes. Configure lembretes e notificações para suas tarefas pendentes e nunca mais se esqueça de uma atividade importante.
 
 ## Como Usar
 
@@ -18,10 +18,9 @@ O 2N Finanças é uma aplicação web simples para acompanhar suas transações 
 
 - HTML
 - CSS
-- BootStrap
 - JavaScript 
 - Chart.js (para criação do gráfico)
 
 ## Autores
 
-Este projeto foi desenvolvido por [BrunnoFOS](https://github.com/BrunnoFOS) e [murisco11] (https://github.com/murisco11).
+Este projeto foi desenvolvido por [BrunnoFOS](https://github.com/BrunnoFOS), [murisco11](https://github.com/murisco11) e [Antognani](https://github.com/Antognani)

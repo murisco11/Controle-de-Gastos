@@ -1,11 +1,7 @@
 <?php
-
 include("protecao.php");
-
-if (!isset($_SESSION)) {
-    session_start();
-}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,10 +27,11 @@ if (!isset($_SESSION)) {
                 categorize gastos e analise com gráficos detalhados para tomar decisões seguras e alcançar suas metas
                 financeiras com confiança
             </div>
-            <a href="logout.php" class="button button-acess">SAIR</a>
             <a href="controlefinanceiro.html" class="button button-acess">Acesse o Controle Financeiro</a>
+            <a href="logout.php" style="color:white">Fazer logout</a>
         </div>
     </div>
+</button>    
     <footer>
         <span>© 2N Finanças. Todos os direitos reservados. Feito por Brunno Oliveira <a href="https://www.instagram.com/oliv.brunno/" style="color: white;">@oliv.brunno</a> e Maurício Pires <a href="https://www.instagram.com/murisxco/" style="color: white;">@murisxco</a></span>
     </footer>

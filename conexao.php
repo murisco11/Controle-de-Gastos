@@ -2,11 +2,11 @@
 
 $usuario = 'root';
 $senha = '';
-$database = 'login';
-$host = 'LOGIN-CF';
+$database = 'login-page';
+$host = 'localhost'; 
 
-$mysqli = new mysqli($host, $usuario, $senha, $confirmacao, $database);
+$mysqli = new mysqli($host, $usuario, $senha, $database);
 
-if($mysqli->error) {
-    die("Ocorreu uma falha ao conectar com o banco de dados" . $mysqli->error);
+if($mysqli->connect_error) {
+    die("Ocorreu uma falha ao conectar com o banco de dados: " . $mysqli->connect_error);
 }

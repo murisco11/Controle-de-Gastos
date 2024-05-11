@@ -1,9 +1,9 @@
 <?php
 
 $usuario = 'root';
-$senha = 'root';
+$senha = '';
 $database = 'login';
-$host = 'login';
+$host = 'LOGIN-CF';
 
 $mysqli = new mysqli($host, $usuario, $senha, $confirmacao, $database);
 

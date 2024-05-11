@@ -1,7 +1,7 @@
 <?php
 include("conexao.php");
 
-if (isset($_POST["email"]) || isset($_POST["senha"])) {
+if (isset($_POST["email"]) && isset($_POST["senha"])) {
 
     if (strlen($_POST["email"]) == 0) {
         echo "Insira seu e-mail.";
@@ -12,7 +12,7 @@ if (isset($_POST["email"]) || isset($_POST["senha"])) {
         $senha = $mysqli->real_escape_string($_POST["senha"]);
 
         $sql_code = "SELECT * FROM nomes WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die('Falha na conexão do código SQ:L' . $mysqli->error);
+        $sql_query = $mysqli->query($sql_code) or die('Falha na conexão do código SQL: ' . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;
 
@@ -26,7 +26,7 @@ if (isset($_POST["email"]) || isset($_POST["senha"])) {
             $_SESSION['id'] = $usuario['id'];
             $_SESSION['nome'] = $usuario['nome'];
 
-            header('location: index.html');
+            header("location: index.html?nome=" . $usuario['nome']);
 
         } else {
             echo "E-mail ou senha incorretos! Tente novamente.";

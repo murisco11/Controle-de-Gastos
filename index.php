@@ -1,40 +1,50 @@
 <?php
 include("conexao.php");
 
+$erro_email = false;
+$erro_senha = false;
+$erro_login = false;
+
 if (isset($_POST["email"]) && isset($_POST["senha"])) {
 
     if (strlen($_POST["email"]) == 0) {
-        echo "Insira seu e-mail.";
-    } else if (strlen($_POST["senha"]) == 0) {
-        echo "Insira sua senha.";
-    } else {
-        $email = $mysqli->real_escape_string($_POST["email"]);
-        $senha = $mysqli->real_escape_string($_POST["senha"]);
+        $erro_email = true;
+    }
 
-        $sql_code = "SELECT * FROM nomes WHERE email = '$email' AND senha = '$senha'";
+    if (strlen($_POST["senha"]) == 0) {
+        $erro_senha = true;
+    }
+
+    if (!$erro_email && !$erro_senha) {
+        $email = $mysqli->real_escape_string($_POST["email"]);
+        $senha = $_POST["senha"];
+
+        $sql_code = "SELECT * FROM users WHERE email = '$email'";
         $sql_query = $mysqli->query($sql_code) or die('Falha na conexão do código SQL: ' . $mysqli->error);
 
         $quantidade = $sql_query->num_rows;
 
         if ($quantidade > 0) {
             $usuario = $sql_query->fetch_assoc();
-
-            if (!isset($_SESSION)) {
+            
+            // Verificar a senha usando password_verify
+            if (password_verify($senha, $usuario['senha'])) {
                 session_start();
+
+                $_SESSION['id'] = $usuario['id'];
+                $_SESSION['nome'] = $usuario['nome'];
+
+                header("location: initialpage.php?nome=" . $usuario['nome']);
+                exit();
+            } else {
+                $erro_login = true;
             }
-
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-
-            header("location: index.html?nome=" . $usuario['nome']);
-
         } else {
-            echo "E-mail ou senha incorretos! Tente novamente.";
+            $erro_login = true;
         }
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -43,6 +53,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2n - Sistema Bancário</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -98,21 +109,38 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
         button:hover {
             background-color: #0056b3;
         }
+
+        .alert {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Login - 2N Finanças</h1>
-        <p>
-            <label for="E-mail">E-mail</label>
-            <input type="text" id="e-mail" name="e-mail" placeholder="Digite seu e-mail.">
-        </p>
-        <p>
+        <?php
+        if (isset($_POST["email"]) && isset($_POST["senha"])) {
+            if ($erro_email && $erro_senha) {
+                echo '<div class="alert alert-danger" role="alert">Insira seu e-mail e senha.</div>';
+            } elseif ($erro_email) {
+                echo '<div class="alert alert-danger" role="alert">Insira seu e-mail.</div>';
+            } elseif ($erro_senha) {
+                echo '<div class="alert alert-danger" role="alert">Insira sua senha.</div>';
+            } elseif ($erro_login) {
+                echo '<div class="alert alert-danger" role="alert">E-mail ou senha incorretos! Tente novamente ou tente registrar-se.</div>';
+            }
+        }
+        ?>
+        <form action="" method="POST">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" name="email" placeholder="Digite seu e-mail.">
             <label for="senha">Senha</label>
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha.">
-        </p>
-        <button type="submit">Entrar</button>
+            <button type="submit">Entrar</button>
+            <p>
+                <a href="registro.php">Registrar</a>
+            </p>
         </form>
     </div>
 </body>

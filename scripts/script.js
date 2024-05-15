@@ -268,10 +268,10 @@ function esconderDinheiroTotal() {
         saldoTotalElemento.textContent = "****";
         saldoCaixaElemento.textContent = "****";
         poupancaElemento.textContent = "****";
-        imgBlind.src = "estilo/Icones BootStrap/eye-slash.svg"
+        imgBlind.src = "../assets/Icones BootStrap/eye-slash.svg"
     } else {
         atualizarSaldo()
-        imgBlind.src = "estilo/Icones BootStrap/eye.svg"
+        imgBlind.src = "../assets/Icones BootStrap/eye.svg"
     }
     iSaldoTotal++;
 }

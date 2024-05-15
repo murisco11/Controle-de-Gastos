@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Inter', sans-serif !important;
-  background-image: url("estilo/images/background.jpg");
+  background-image: url("../images/background.jpg");
   background-size: cover;
   background-repeat: repeat;
   background-position: center center;
@@ -152,15 +152,12 @@ input[type="number"]::-webkit-outer-spin-button {
   text-align: center;
   display: block;
   opacity: 0;
-  transform: translateX(100px);
   transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
 
 }
 
 #buttonConfirm.show {
-
   opacity: 1;
-  transform: translateX(0);
 }
 
 #buttonConfirm:hover {

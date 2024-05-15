@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-image: url("estilo/images/background.jpg");
+  background-image: url("../images/background.jpg");
   background-size: cover;
   background-repeat: repeat;
   background-position: center center;
@@ -137,7 +137,6 @@ header nav a img {
      text-align: center;
      display: block;
      opacity: 0;
-     transform: translateX(100px);
      transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
    }
 
@@ -182,7 +181,6 @@ header nav a img {
      width: 40vw;
      margin: 0 auto;
      opacity: 0;
-     transform: translateX(100px);
      transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
    }
 

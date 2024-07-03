@@ -137,6 +137,7 @@ header nav a img {
      text-align: center;
      display: block;
      opacity: 0;
+     transform: translateX(1000px);
      transition: background-color 0.3s, box-shadow 0.3s, opacity 1s ease, transform 1s ease;
    }
 

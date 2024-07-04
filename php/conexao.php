@@ -6,9 +6,8 @@ $database = '2nfin';
 
 $conn = new mysqli($host, $user, $password, $database);
 
-
-if ($mysqli->connect_error) {
-    echo "Ocorreu uma falha ao conectar com o banco de dados: " . $mysqli->connect_error;
+if ($conn->connect_error) {
+    echo "Ocorreu uma falha ao conectar com o banco de dados: " . $conn->connect_error;
     exit;
 }
 ?>

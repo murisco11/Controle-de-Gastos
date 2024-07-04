@@ -1,24 +1,21 @@
 <?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$database = '2nfin';
+include './conexao.php';
 
-$conexao = new mysqli($host, $user, $password, $database);
+$nome = $_POST['nome'] ?? null;
+$email = $_POST['email'] ?? null;
+$senha = $_POST['senha'] ?? null;
 
+$senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-if ($conexao->connect_error) {
-    echo "Ocorreu uma falha ao conectar com o banco de dados: " . $mysqli->connect_error;
-    exit;
-}
+$sql_checar_email = "SELECT * FROM users WHERE email = '$email'";
+    $checar_email = $conn->query($sql_checar_email);
 
-$nome = $_REQUEST['nome'] ?? null;
-$email = $_REQUEST['email']  ?? null;
-$senha = $_REQUEST['senha']  ?? null;
-
-$sql = "INSERT INTO users (nome, email, senha) VALUES ('$nome', '$email','$senha)";
-
-$resultado = $conexao->query($sql);
+if ($checar_email->num_rows > 0) {
+    echo "<div class='alert alert-danger' role='alert'>Este e-mail já está cadastrado. Por favor, utilize outro.</div>";
+} else {
+$sql_inserir_usuario = "INSERT INTO users (nome, email, senha) VALUES ('$nome', '$email','$senha)";
+$resultado = $conn->query($sql_inserir_usuario);
+};
 ?>
 
 <!DOCTYPE html>

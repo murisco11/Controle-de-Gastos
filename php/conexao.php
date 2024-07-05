@@ -1,13 +1,12 @@
-<?php 
-$host = 'localhost';
-$user = 'root';
-$password = '';
+<?php
+$usuario = 'root';
+$senha = '';
 $database = '2nfin';
+$host = 'localhost';           
 
-$conn = new mysqli($host, $user, $password, $database);
+$mysqli = new mysqli($host, $usuario, $senha, $database);
 
-if ($conn->connect_error) {
-    echo "Ocorreu uma falha ao conectar com o banco de dados: " . $conn->connect_error;
+if ($mysqli->connect_error) {
+    echo "Ocorreu uma falha ao conectar com o banco de dados: " . $mysqli->connect_error;
     exit;
 }
-?>

@@ -50,7 +50,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["senha"])) {
 
 <body class="containerBody">
     <div class="container">
-        <form action="../php/cadastro.php" method="POST">
+        <form action="" method="POST">
             <div class="form-container">
                 <h1>Cadastre-se</h1>
                 <p>

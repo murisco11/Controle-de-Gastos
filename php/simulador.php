@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,8 +25,8 @@
     <header>
         <nav>
             <div>
-                <a style="font-weight: 800; font-size: 1.2em;" href="../index.html">
-                    <img src="../assets/images/arrow.png" alt="Página Inicial" width="30" height="25" />
+                <a style="font-weight: 800; font-size: 1.2em;" href="./controlefinanceiro.php">
+                    <img src="../assets/images/arrow.png" alt="Página anterior" width="30" height="25" />
                     Página inicial</a>
             </div>
         </nav>

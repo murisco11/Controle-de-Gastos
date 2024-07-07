@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: ../index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +28,7 @@
       <div class="card-text">Gerencie suas finanças de forma eficaz em uma plataforma intuitiva. Acompanhe transações,
         categorize gastos e analise com gráficos detalhados para tomar decisões seguras e alcançar suas metas
         financeiras com confiança</div>
-      <a href="html/controlefinanceiro.html" class="button button-acess">Acesse o Controle Financeiro</a>
+      <a href="controlefinanceiro.php" class="button button-acess">Acesse o Controle Financeiro</a>
     </div>
   </div>
   <footer>

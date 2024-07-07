@@ -1,43 +1,50 @@
-<?php 
+<?php
 session_start();
-include ('./php/conexao.php');
-$erro_email = false; 
-$erro_senha = false; 
-$erro_login = false; 
+include('php/conexao.php');
+
+$erro_email = false;
+$erro_senha = false;
+$erro_login = false;
 
 if (isset($_POST["email"]) && isset($_POST["senha"])) {
 
-    if (strlen($_POST["email"]) == 0) {
-        $erro_email = true; 
+    $email = $_POST["email"];
+    $senha = $_POST["senha"];
+
+    if (empty($email)) {
+        $erro_email = true;
     }
 
-    if (strlen($_POST["senha"]) == 0) {
-        $erro_senha = true; 
+    if (empty($senha)) {
+        $erro_senha = true;
     }
 
     if (!$erro_email && !$erro_senha) {
-        $email = $mysqli->real_escape_string($_POST["email"]);
-        $senha = $_POST["senha"];
+        $stmt = $mysqli->prepare("SELECT id, nome, senha, saldo FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-        $sql_code = "SELECT * FROM users WHERE email = '$email'";
-        $sql_query = $mysqli->query($sql_code) or die('Falha na conexão do código SQL: ' . $mysqli->error);
-
-        $quantidade = $sql_query->num_rows;
-
-        if ($quantidade > 0) {
-            $usuario = $sql_query->fetch_assoc();
-
+        if ($result->num_rows == 1) {
+            $usuario = $result->fetch_assoc();
+            
             if (password_verify($senha, $usuario['senha'])) {
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
-                header("Location: ./php/initialpage.html"); //nome=" . $usuario['nome']
+                $_SESSION['saldo'] = $usuario['saldo'];
+                
+                header("Location: php/controlefinanceiro.php");
                 exit();
             } else {
-                $erro_login = true; 
+                $erro_login = true;
             }
         } else {
-            $erro_login = true; 
+            $erro_login = true;
         }
+
+        $stmt->close();
+    } else {
+        $erro_login = true;
     }
 }
 ?>
@@ -49,7 +56,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2N Finanças</title>
-    <link rel="stylesheet" href="./assets/CSS/styles.css">
+    <link rel="stylesheet" href="assets/CSS/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
@@ -86,7 +93,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
             </div>
             <div class="image-container"></div>
         </form>
-        <a class="btn btn-outline-light rounded-pill" href="./php/cadastro.php" role="button">Novo no site? Registre-se<a>
+        <a class="btn btn-outline-light rounded-pill" href="php/cadastro.php" role="button">Novo no site? Registre-se<a>
         </div>
 </body>
 <script>

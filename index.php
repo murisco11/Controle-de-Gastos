@@ -20,7 +20,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
     }
 
     if (!$erro_email && !$erro_senha) {
-        $stmt = $mysqli->prepare("SELECT id, nome, senha, saldo FROM users WHERE email = ?");
+        $stmt = $mysqli->prepare("SELECT id, nome, senha, saldo, poupanca FROM users WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -32,6 +32,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
                 $_SESSION['id'] = $usuario['id'];
                 $_SESSION['nome'] = $usuario['nome'];
                 $_SESSION['saldo'] = $usuario['saldo'];
+                $_SESSION['poupanca'] = $usuario['poupanca'];
                 
                 header("Location: php/controlefinanceiro.php");
                 exit();

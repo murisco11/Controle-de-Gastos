@@ -79,7 +79,6 @@ function adicionarTransacao() {
         data_transacao: data_transacao
     };
 
-    // Adicionando a transação ao banco de dados
     fetch('salvarTransacao.php', {
         method: 'POST',
         headers: {
@@ -91,6 +90,11 @@ function adicionarTransacao() {
     .then(data => {
         if (data.status === 'success') {
             transacoes.push(transacao);
+            if (tipo === 'adicionarPoupanca') {
+                adicionarPoupanca(valor);
+            } else if (tipo === 'retirarPoupanca') {
+                retirarPoupanca(valor);
+            }
             atualizarSaldo();
             atualizarHistorico();
             atualizarGrafico();
@@ -258,33 +262,34 @@ function atualizarGrafico() {
 
 let saldoCensurado = false;
 
-document.getElementById('saldoTotal').addEventListener('click', function () {
+document.getElementById('censuraBotao').addEventListener('click', function () {
     saldoCensurado = !saldoCensurado;
-    atualizarSaldo();
+    document.getElementById('saldoTotal').textContent = saldoCensurado ? "****" : formatarNumero(saldoReceitas - saldoDespesas + poupanca);
+    document.getElementById('saldoCaixa').textContent = saldoCensurado ? "****" : formatarNumero(saldoReceitas - saldoDespesas);
+    document.getElementById('poupanca').textContent = saldoCensurado ? "****" : formatarNumero(poupanca);
+    document.getElementById('censuraBotao').textContent = saldoCensurado ? "Mostrar" : "Ocultar";
 });
-
-function formatarData(data) {
-    const dia = data.getDate().toString().padStart(2, '0');
-    const mes = (data.getMonth() + 1).toString().padStart(2, '0');
-    const ano = data.getFullYear();
-    return `${dia}/${mes}/${ano}`;
-}
 
 function carregarTransacoes() {
     fetch('carregarTransacoes.php')
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-                transacoes = data.transacoes.map(transacao => ({
-                    ...transacao,
-                    valor: parseFloat(transacao.valor)
-                }));
+                transacoes = data.transacoes;
+                poupanca = parseFloat(data.poupanca);
                 atualizarSaldo();
                 atualizarHistorico();
                 atualizarGrafico();
             } else {
-                console.error('Erro ao carregar transações');
+                console.error('Erro ao carregar transações:', data.message);
             }
         })
-        .catch(error => console.error('Erro:', error));
+        .catch(error => console.error('Erro ao carregar transações:', error));
+}
+
+function formatarData(data) {
+    const dia = data.getDate().toString().padStart(2, '0');
+    const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+    const ano = data.getFullYear();
+    return `${dia}/${mes}/${ano}`;
 }

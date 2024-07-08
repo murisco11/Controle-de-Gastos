@@ -12,8 +12,7 @@ include ('conexao.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/BootStrap/bootstrap.min.css" />
-  <link rel="stylesheet" href="../assets/CSS/styles-CF.css">
+  <link rel="stylesheet" href="../assets/BootStrap/bootstrap.min.css">
   <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,7 +91,7 @@ include ('conexao.php');
           <img src="../assets/Icones BootStrap/piggy-bank.svg" alt="Porquinho" width="30" height="35" />
           Poupança:
         </h2>
-        <h2 id="poupanca">0,00</h2>
+        <h2 id="poupanca"><?php echo ($_SESSION['poupanca']); ?></h2>
       </div>
     </div>
   </div>

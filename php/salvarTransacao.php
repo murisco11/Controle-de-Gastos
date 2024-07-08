@@ -22,26 +22,52 @@ $valor = $data['valor'] ?? null;
 $tipo = $data['tipo'] ?? null;
 $data_transacao = $data['data_transacao'] ?? null;
 
-if (!$descricao || !$valor || !$tipo || !$data_transacao) {
+if (!$valor || !$tipo || !$data_transacao || ($tipo !== 'retirarPoupanca' && $tipo !== 'adicionarPoupanca' && !$descricao)) {
     echo json_encode(["status" => "error", "message" => "Dados incompletos"]);
     exit;
 }
 
-$sql = "INSERT INTO transacoes (usuario_id, descricao, valor, tipo, data_transacao) VALUES (?, ?, ?, ?, ?)";
-$stmt = $mysqli->prepare($sql);
+$mysqli->begin_transaction();
 
-if ($stmt === false) {
-    echo json_encode(["status" => "error", "message" => "Falha na preparação da consulta"]);
-    exit;
-}
+try {
+    // Adicionar transação
+    $sql = "INSERT INTO transacoes (usuario_id, descricao, valor, tipo, data_transacao) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $mysqli->prepare($sql);
 
-$stmt->bind_param("isdss", $usuario_id, $descricao, $valor, $tipo, $data_transacao);
+    if ($stmt === false) {
+        throw new Exception("Falha na preparação da consulta");
+    }
 
-if ($stmt->execute()) {
+    $stmt->bind_param("isdss", $usuario_id, $descricao, $valor, $tipo, $data_transacao);
+
+    if (!$stmt->execute()) {
+        throw new Exception("Erro ao adicionar transação");
+    }
+
+    // Atualizar poupança
+    if ($tipo === 'adicionarPoupanca' || $tipo === 'retirarPoupanca') {
+        $sql = "UPDATE users SET poupanca = poupanca " . ($tipo === 'adicionarPoupanca' ? "+" : "-") . " ? WHERE id = ?";
+        $stmt = $mysqli->prepare($sql);
+
+        if ($stmt === false) {
+            throw new Exception("Falha na preparação da consulta de atualização da poupança");
+        }
+
+        $stmt->bind_param("di", $valor, $usuario_id);
+
+        if (!$stmt->execute()) {
+            throw new Exception("Erro ao atualizar poupança");
+        }
+    }
+
+    $mysqli->commit();
+
     echo json_encode(["status" => "success", "message" => "Transação adicionada com sucesso"]);
-} else {
-    echo json_encode(["status" => "error", "message" => "Erro ao adicionar transação"]);
+} catch (Exception $e) {
+    $mysqli->rollback();
+    echo json_encode(["status" => "error", "message" => $e->getMessage()]);
 }
 
 $stmt->close();
+$mysqli->close();
 ?>

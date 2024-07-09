@@ -17,7 +17,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["senha"])) {
                 <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
               </div>";
     } else {
-        $sql_insert_user = "INSERT INTO users (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')"; //query que irá cadastrar o usuário
+        $sql_insert_user = "INSERT INTO users (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')";
         if ($mysqli->query($sql_insert_user)) {
             echo "<div class='alert alert-success alert-dismissible fade show' role='alert'>Registro realizado com sucesso! Você será redirecionado para a página de login em alguns segundos.
                     <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>

@@ -2,6 +2,14 @@
 
 O 2N Finanças foi um projeto visando a criação de uma ferramenta para gerenciamento financeiro pessoal que fiz em conjunto com meu amigo da faculdade Maurício que teve um papel crucial no front-end, onde trabalhamos juntos na criação de funções da página inicial, do controle financeiro e do simulador. Fiquei responsável pela parte do back-end e também pela estilização das páginas de login e cadastro.
 
+## Índice
+
+- [Funcionalidades](#funcionalidades)
+- [Stacks](#tecnologiasbibliotecasframeworks-utilizados)
+- [Como testar?](#como-usar)
+- [Contato](#autores)
+
+
 ## Funcionalidades
 
 - Adição de transações relacionadas a entradas e saídas de seu dinheiro, para que você possa ter um controle financeiro acerca de seus gastos

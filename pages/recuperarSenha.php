@@ -1,3 +1,7 @@
+<?php 
+var_dump('Mensagem de console somente para não ficar com .hack no GitHub, kkkkkkk')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

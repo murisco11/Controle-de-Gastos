@@ -1,5 +1,5 @@
 <?php 
-var_dump('Mensagem de console somente para não ficar com .hack no GitHub, kkkkkkk')
+echo "<script>console.log('Mensagem de console somente para não ficar com .hack no GitHub, kkkkkk' );</script>";
 ?>
 
 <!DOCTYPE html>

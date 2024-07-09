@@ -1,6 +1,6 @@
 
-CREATE DATABASE IF NOT EXISTS `2nfinancas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `2nfinancas`;
+CREATE DATABASE IF NOT EXISTS `2nfinancasDB` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `2nfinancasDB`;
 
 DROP TABLE IF EXISTS `transacoes`;
 CREATE TABLE IF NOT EXISTS `transacoes` (
@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(255) NOT NULL,
   `senha` varchar(10000) NOT NULL,
   `saldo` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `poupanca` decimal(10,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

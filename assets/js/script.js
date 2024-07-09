@@ -79,7 +79,7 @@ function adicionarTransacao() {
         data_transacao: data_transacao
     };
 
-    fetch('../endpoints/salvarTransacao.php', {
+    fetch('salvarTransacao.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

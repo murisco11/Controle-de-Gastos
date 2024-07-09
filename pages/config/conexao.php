@@ -1,7 +1,7 @@
 <?php
 $usuario = 'root';
 $senha = '';
-$database = '2nFinancas';
+$database = '2nFinancasDB';
 $host = 'localhost';           
 
 $mysqli = new mysqli($host, $usuario, $senha, $database);

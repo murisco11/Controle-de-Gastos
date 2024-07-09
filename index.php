@@ -34,7 +34,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
                 $_SESSION['saldo'] = $usuario['saldo'];
                 $_SESSION['poupanca'] = $usuario['poupanca'];
                 
-                header("Location: pages/paginaInicial.php");
+                header("Location: ./pages/paginaInicial.php");
                 exit();
             } else {
                 $erro_login = true;
@@ -91,7 +91,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
                 </p>
                 <button class="button" type="submit">Entrar</button>
                 <br>
-                <a href="./php/recuperarSenha.php">Esqueceu sua senha?</a>
+                <a href="./pages/recuperarSenha.php">Esqueceu sua senha?</a>
             </div>
             <div class="image-container"></div>
         </form>

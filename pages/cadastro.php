@@ -75,9 +75,14 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["senha"])) {
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const button = document.querySelector(".button");
-        button.classList.add("show");
+        const button = document.querySelectorAll(".button");
+        setTimeout(function () {
+        button.forEach(function (button) {
+            button.classList.add("show");
+
+        })
     });
+});
 </script>
 
 </html>

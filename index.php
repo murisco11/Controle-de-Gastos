@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('php/conexao.php');
+include('pages/config/conexao.php');
 
 $erro_email = false;
 $erro_senha = false;
@@ -34,7 +34,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
                 $_SESSION['saldo'] = $usuario['saldo'];
                 $_SESSION['poupanca'] = $usuario['poupanca'];
                 
-                header("Location: php/controlefinanceiro.php");
+                header("Location: pages/paginaInicial.php");
                 exit();
             } else {
                 $erro_login = true;
@@ -58,6 +58,7 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2N Finanças</title>
     <link rel="stylesheet" href="assets/CSS/styles.css">
+    <link rel="icon" href="./assets/images/favicon.png" type="image/x-icon" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
@@ -90,11 +91,11 @@ if (isset($_POST["email"]) && isset($_POST["senha"])) {
                 </p>
                 <button class="button" type="submit">Entrar</button>
                 <br>
-                <a href="#">Esqueceu sua senha?</a>
+                <a href="./php/recuperarSenha.php">Esqueceu sua senha?</a>
             </div>
             <div class="image-container"></div>
         </form>
-        <a class="btn btn-outline-light rounded-pill" href="php/cadastro.php" role="button">Novo no site? Registre-se<a>
+        <a class="btn btn-outline-light rounded-pill" href="pages/cadastro.php" role="button">Novo no site? Registre-se<a>
         </div>
 </body>
 <script>

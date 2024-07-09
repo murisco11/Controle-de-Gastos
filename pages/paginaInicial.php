@@ -4,6 +4,7 @@ if (!isset($_SESSION['id'])) {
     header("Location: ../index.php");
     exit();
 }
+include ('./config/conexao.php')
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@ if (!isset($_SESSION['id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../assets/CSS/styles.css">
   <title>2N Finanças</title>
-  <link rel="icon" href="assets/images/favicon.png" type="image/x-icon" />
+  <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -28,7 +29,9 @@ if (!isset($_SESSION['id'])) {
       <div class="card-text">Gerencie suas finanças de forma eficaz em uma plataforma intuitiva. Acompanhe transações,
         categorize gastos e analise com gráficos detalhados para tomar decisões seguras e alcançar suas metas
         financeiras com confiança</div>
-      <a href="controlefinanceiro.php" class="button button-acess">Acesse o Controle Financeiro</a>
+      <a href="simulador.php" class="button button-acess">Simulador de investimentos</a>
+      <a href="controlefinanceiro.php" class="button button-acess">Controle Financeiro</a>
+      <a href="logout.php" class="button button-acess">Sair</a>
     </div>
   </div>
   <footer>
@@ -38,19 +41,26 @@ if (!isset($_SESSION['id'])) {
   </footer>
   <script>
     var typed = new Typed('#efeito_TypeWritter', {
-      strings: ['2N Finanças!'],
+      strings: ['2N Finanças, <?php echo ($_SESSION['nome']); ?>!'],
       typeSpeed: 95,
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-      var card = document.querySelector(".card");
-      var button = document.querySelector(".button");
-
-      setTimeout(function () {
-        card.classList.add("show");
-        button.classList.add("show");
-      }, 100);
+    var button = document.querySelectorAll(".button");
+    const card = document.querySelectorAll(".card");
+    setTimeout(function () {
+        card.forEach(function (card) {
+            card.classList.add("show");
+        })
     });
+
+    setTimeout(function () {
+        button.forEach(function (button) {
+            button.classList.add("show");
+
+        })
+    });
+});
   </script>
 </body>
 

@@ -4,7 +4,7 @@ if (!isset($_SESSION['id'])) {
     header("Location: ../index.php");
     exit();
 }
-include ('conexao.php');
+include ('./config/conexao.php')
 ?>
 
 <!DOCTYPE html>
@@ -12,27 +12,22 @@ include ('conexao.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/CSS/styles-CF.css">
   <link rel="stylesheet" href="../assets/BootStrap/bootstrap.min.css">
   <link rel="icon" href="../assets/images/favicon.png" type="image/x-icon" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <title>2N Finanças</title>
-
+  
 </head>
 <body>
   <header>
     <nav>
       <div class="divHeader1">
-        <a style="font-weight: 800; font-size: 1.2em;" href="./initialpage.php">
+        <a style="font-weight: 800; font-size: 1.2em;" href="./paginaInicial.php">
             <img src="../assets/images/arrow.png" alt="Página Inicial" width="30" height="25" />
             Página inicial</a>
-      </div>
-      <div class="div2Header">
-        <a  style="font-weight: 800; font-size: 1.2em;" href="./simulador.php">Simulador
-          <img src="../assets/images/arrow.png" style="transform: rotate(180deg);" alt="Simulador" width="30" height="25"
-            class="arrowRight" />
-        </a>
       </div>
     </nav>
   </header>
@@ -69,7 +64,7 @@ include ('conexao.php');
     </div>
 
     <div class="container-saldos division">
-      <button onclick="esconderDinheiroTotal()" class="btnBlind button button-acess">
+      <button id="censuraBotao" class="btnBlind button button-acess">
         <img src="../assets/Icones BootStrap/eye.svg" id="imgBlind" class="imgBlind" alt="Esconder/Mostrar saldos">
       </button>
       <div class="div-saldos">
@@ -122,17 +117,24 @@ include ('conexao.php');
       </div>
     </div>
   </div>
-  <script>
-     document.addEventListener("DOMContentLoaded", function () {
-      var card = document.querySelector(".card");
-      var button = document.querySelector(".button");
-
-      setTimeout(function () {
-        card.classList.add("show");
-        button.classList.add("show");
-      }, 100);
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var button = document.querySelectorAll(".button");
+    const division = document.querySelectorAll(".division");
+    setTimeout(function () {
+        division.forEach(function (division) {
+            division.classList.add("show");
+        })
     });
-  </script>
+
+    setTimeout(function () {
+        button.forEach(function (button) {
+            button.classList.add("show");
+
+        })
+    });
+});
+</script>
   <script src="../assets/js/script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
 </body>

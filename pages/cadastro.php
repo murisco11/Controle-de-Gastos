@@ -1,5 +1,5 @@
 <?php
-include("conexao.php");
+include ('./config/conexao.php');
 
 if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["senha"])) {
 
@@ -10,7 +10,7 @@ if (isset($_POST["nome"]) && isset($_POST["email"]) && isset($_POST["senha"])) {
     $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
     $sql_check_email = "SELECT * FROM users WHERE email = '$email'";
-    $check_email = $mysqli->query($sql_check_email); //query que irá verificar se o email já está cadastro 
+    $check_email = $mysqli->query($sql_check_email);
 
     if ($check_email->num_rows > 0) {
         echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Este e-mail já está cadastrado. Por favor, utilize outro.

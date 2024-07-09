@@ -1,8 +1,7 @@
 <?php
 session_start();
-include('conexao.php');
+include ('./config/conexao.php');
 
-// Receber dados JSON da requisição POST
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
@@ -30,7 +29,6 @@ if (!$valor || !$tipo || !$data_transacao || ($tipo !== 'retirarPoupanca' && $ti
 $mysqli->begin_transaction();
 
 try {
-    // Adicionar transação
     $sql = "INSERT INTO transacoes (usuario_id, descricao, valor, tipo, data_transacao) VALUES (?, ?, ?, ?, ?)";
     $stmt = $mysqli->prepare($sql);
 
@@ -44,7 +42,6 @@ try {
         throw new Exception("Erro ao adicionar transação");
     }
 
-    // Atualizar poupança
     if ($tipo === 'adicionarPoupanca' || $tipo === 'retirarPoupanca') {
         $sql = "UPDATE users SET poupanca = poupanca " . ($tipo === 'adicionarPoupanca' ? "+" : "-") . " ? WHERE id = ?";
         $stmt = $mysqli->prepare($sql);

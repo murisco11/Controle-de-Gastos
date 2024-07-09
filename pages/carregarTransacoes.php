@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('conexao.php');
+include ('./config/conexao.php');
 
 if (!isset($_SESSION['id'])) {
     header("Location: ../index.php");
@@ -9,7 +9,6 @@ if (!isset($_SESSION['id'])) {
 
 $usuario_id = $_SESSION['id'];
 
-// Carregar transações
 $sql = "SELECT descricao, valor, tipo, data_transacao FROM transacoes WHERE usuario_id = ?";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("i", $usuario_id);
@@ -24,7 +23,6 @@ while ($row = $result->fetch_assoc()) {
 
 $stmt->close();
 
-// Carregar poupança
 $sql = "SELECT poupanca FROM users WHERE id = ?";
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("i", $usuario_id);
@@ -36,9 +34,8 @@ $stmt->close();
 echo json_encode([
     "status" => "success",
     "transacoes" => $transacoes,
-    "poupanca" => $poupanca
+    "poupanca" => floatval($poupanca)
 ]);
 
 $mysqli->close();
-
 ?>

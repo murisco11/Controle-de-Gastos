@@ -1,15 +1,15 @@
-// Função para checar se o valor inserido é um número válido
 function checarNumero(event) {
     const input = event.target;
     const valor = input.value;
-    if (isNaN(valor) || valor < 0) {
+    const tipo = document.getElementById('tipo').value;
+    
+    if (isNaN(valor) || (tipo !== 'retirarPoupanca' && tipo !== 'despesa' && valor < 0)) {
         input.setCustomValidity("Por favor, insira um número válido.");
     } else {
         input.setCustomValidity("");
     }
 }
 
-// Adicionando o event listener para checarNumero
 document.getElementById('inputValor').addEventListener('input', checarNumero);
 
 let transacoes = [];
@@ -59,7 +59,7 @@ function adicionarTransacao() {
         camposVazios++;
     }
 
-    if (isNaN(valor) || valor <= 0) {
+    if (isNaN(valor) || (tipo !== 'retirarPoupanca' && tipo !== 'adicionarPoupanca' && valor <= 0) || (tipo === 'retirarPoupanca' && valor > poupanca)) {
         if (tipo === 'retirarPoupanca' || tipo === 'adicionarPoupanca') {
             document.getElementById('poupancaHelp').textContent = 'Necessário adicionar um valor válido a sua transação';
         } else {
@@ -79,7 +79,7 @@ function adicionarTransacao() {
         data_transacao: data_transacao
     };
 
-    fetch('salvarTransacao.php', {
+    fetch('../endpoints/salvarTransacao.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -104,7 +104,7 @@ function adicionarTransacao() {
 
             exibirMensagemTemporaria("Sua transação foi adicionada", 5000);
         } else {
-            exibirMensagemTemporaria("Erro ao adicionar transação", 5000);
+            exibirMensagemTemporaria("Erro ao adicionar transação, verifique se preencheu todos os campos", 5000);
         }
     })
     .catch(error => {
@@ -115,28 +115,17 @@ function adicionarTransacao() {
 
 function adicionarPoupanca(valor) {
     poupanca += valor;
-    if (poupanca < 0) {
-        poupanca = 0;
-    }
     atualizarSaldo();
 }
 
 function retirarPoupanca(valor) {
     poupanca -= valor;
-    if (poupanca < 0) {
-        poupanca = 0;
-    }
     atualizarSaldo();
 }
 
 function atualizarSaldo() {
     let saldoReceitas = 0;
     let saldoDespesas = 0;
-
-    if (!Array.isArray(transacoes)) {
-        console.error('transacoes não é um array');
-        return;
-    }
 
     for (let transacao of transacoes) {
         if (transacao.tipo === 'receita') {
@@ -264,14 +253,12 @@ let saldoCensurado = false;
 
 document.getElementById('censuraBotao').addEventListener('click', function () {
     saldoCensurado = !saldoCensurado;
-    document.getElementById('saldoTotal').textContent = saldoCensurado ? "****" : formatarNumero(saldoReceitas - saldoDespesas + poupanca);
-    document.getElementById('saldoCaixa').textContent = saldoCensurado ? "****" : formatarNumero(saldoReceitas - saldoDespesas);
-    document.getElementById('poupanca').textContent = saldoCensurado ? "****" : formatarNumero(poupanca);
-    document.getElementById('censuraBotao').textContent = saldoCensurado ? "Mostrar" : "Ocultar";
+    atualizarSaldo(); 
+    document.getElementById('censuraBotao').textContent = saldoCensurado ? "Mostrar Saldo" : "Ocultar Saldo";
 });
 
 function carregarTransacoes() {
-    fetch('carregarTransacoes.php')
+    fetch('carregarTransacoes.php   ')
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {

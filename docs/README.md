@@ -40,6 +40,8 @@ Após isso, basta utilizar um sistema de administração de banco de dados (PHPM
 Depois disso, basta alterar os dados de conexao no arquivo de config `conexao.php` e executar no localhost.
 Pelo PHPMyAdmin ou por consultas no workbench do MySql você consegue acompanhar a interação entre o front e back end através de requisições
 
+Ou você pode verificar esse vídeo de demonstração da aplicação no meu linkedin: https://www.linkedin.com/posts/brunno-ferreira-os_boa-noite-pessoal-gostaria-de-compartilhar-activity-7216624528372727809-K7CB?utm_source=share&utm_medium=member_desktop
+
 ## Autores
 
 Este projeto foi desenvolvido por [BrunnoFOS](https://github.com/BrunnoFOS) e [murisco11] (https://github.com/murisco11).
